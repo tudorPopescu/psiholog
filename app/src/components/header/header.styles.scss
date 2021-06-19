@@ -1,0 +1,81 @@
+.header {
+  padding: 0 20px 10px 20px;
+  text-transform: uppercase;
+
+  .logo {
+    background: url(../../assets/images/logo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
+    margin: 0px;
+    width: 72px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  a, .logout {
+    padding: 0 6px;
+    color: #777;
+    cursor: pointer;
+
+    &:hover {
+      color: #0a58ca !important;
+      text-decoration: underline;
+    }
+  }
+
+  .links-wrap {
+    align-items: center;
+    display: flex;
+  }
+
+  .dropdown {
+    display: inline-block;
+
+    .dropdown-toggle {
+      border: 0;
+      background-color: #f7f7f7 !important;
+      color: #777 !important;
+      text-transform: uppercase;
+      vertical-align: baseline;
+      padding: 0 10px;
+      font-size: 14px;
+
+      &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        color: #0a58ca !important;
+      }
+
+      &:after {
+        vertical-align: 2px;
+      }
+    }
+
+    .dropdown-menu {
+      a {
+        display: block;
+        width: 100%;
+        padding: 3px 10px;
+        clear: both;
+        font-weight: 400;
+        color: #777;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .user-wrap {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
