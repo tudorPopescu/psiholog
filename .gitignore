@@ -1,0 +1,8 @@
+node_modules
+.tmp
+.idea
+.vscode
+.env
+.history/
+/tempReports
+package-lock.json
