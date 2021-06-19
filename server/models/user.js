@@ -41,6 +41,6 @@ module.exports = (sequelize, DataType) => {
 	}, {
 		timestamps: true
 	});
-  model.belongsTo(sequelize.models.Unit, {foreignKey: 'id_unit', onDelete: 'cascade'});
+  // model.belongsTo(sequelize.models.Unit, {foreignKey: 'id_unit', onDelete: 'cascade'});
 	return model;
 };

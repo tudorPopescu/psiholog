@@ -1,11 +1,8 @@
 module.exports = (sequelize, DataType) => {
-	let model = sequelize.define('County', {
+	let model = sequelize.define('Appointment', {
     name: {
 			type: DataType.STRING(50)
-		},
-    code: {
-      type: DataType.STRING(2)
-    }
+		}
 	}, {
 		timestamps: true
 	});

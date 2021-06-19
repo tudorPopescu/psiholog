@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-	let model = sequelize.define('Village', {
+	let model = sequelize.define('Service', {
     name: {
 			type: DataType.STRING(40)
 		},
@@ -12,6 +12,6 @@ module.exports = (sequelize, DataType) => {
 	}, {
 		timestamps: true
 	});
-  model.belongsTo(sequelize.models.Locality, {foreignKey: 'id_locality', onDelete: 'cascade'});
+  // model.belongsTo(sequelize.models.Locality, {foreignKey: 'id_locality', onDelete: 'cascade'});
 	return model;
 };

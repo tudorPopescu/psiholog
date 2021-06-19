@@ -25,45 +25,11 @@ module.exports = function getModels(sequelize, Sequelize) {
 	getFilesRecursive(__dirname);
 
 	let arr = [
-		/************************ DRAFTS *********************/
-		{path: __dirname + '/drafts/country.js', sync: false},
-		{path: __dirname + '/drafts/county.js', sync: false},
-		{path: __dirname + '/drafts/locality.js', sync: false},
-		{path: __dirname + '/drafts/village.js', sync: false},
-
-		{path: __dirname + '/drafts/draftBudgetarySector.js', sync: false},
-		{path: __dirname + '/drafts/draftFoundingSource.js', sync: false},
-		{path: __dirname + '/drafts/draftFoundingBudgetary.js', sync: false},
-		{path: __dirname + '/drafts/draftActivity.js', sync: false},
-		{path: __dirname + '/drafts/draftFoundingBudgetaryActivity.js', sync: false},
-		{path: __dirname + '/drafts/draftOutgoing.js', sync: false},
-		{path: __dirname + '/drafts/draftBank.js', sync: false},
-		{path: __dirname + '/drafts/draftRetain.js', sync: false},
-		{path: __dirname + '/drafts/draftDeduction.js', sync: false},
-		{path: __dirname + '/drafts/draftFreeDays.js', sync: false},
-		{path: __dirname + '/drafts/draftSeniorityBonus.js', sync: false},
-
-		{path: __dirname + '/drafts/streetType.js', sync: false},
-		{path: __dirname + '/drafts/citizenship.js', sync: false},
-
-		{path: __dirname + '/config/street.js', sync: false},
-
-		{path: __dirname + '/unit.js', sync: false},
 		{path: __dirname + '/user.js', sync: false},
-		{path: __dirname + '/address.js', sync: false},
-
-		/************************ CONFIG *********************/
-		{path: __dirname + '/config/cfgBank.js', sync: false},
-		{path: __dirname + '/config/cfgFoundingBudgetary.js', sync: false},
-		{path: __dirname + '/config/cfgCompartment.js', sync: false},
-		{path: __dirname + '/config/cfgPayRoll.js', sync: false},
-		{path: __dirname + '/config/cfgPayRollCentralizing.js', sync: false},
-		{path: __dirname + '/config/cfgPayRollJunction.js', sync: false},
-		{path: __dirname + '/config/cfgRetain.js', sync: false},
-
-		{path: __dirname + '/employee/employee.js', sync: false},
+		{path: __dirname + '/appointment.js', sync: false},
+		{path: __dirname + '/service.js', sync: false},
 		{path: __dirname + '/logError.js', sync: false},
-		{path: __dirname + '/logAction.js', sync: false}
+		{path: __dirname + '/logAction.js', sync: false},
 	];
 
 	let syncTables = [];

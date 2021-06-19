@@ -15,11 +15,11 @@ module.exports = (sequelize, DataType) => {
 	}, {
 		timestamps: true,
 		indexes: [
-			{fields: ['id_user']},
-			{fields: ['id_employee']}
+			// {fields: ['id_user']},
+			// {fields: ['id_employee']}
 		]
 	});
-	model.belongsTo(sequelize.models.User, {foreignKey: 'id_user', onDelete: 'cascade'});
-	model.belongsTo(sequelize.models.Employee, {foreignKey: 'id_employee', onDelete: 'set null'});
+	// model.belongsTo(sequelize.models.User, {foreignKey: 'id_user', onDelete: 'cascade'});
+	// model.belongsTo(sequelize.models.Employee, {foreignKey: 'id_employee', onDelete: 'set null'});
 	return model;
 };
