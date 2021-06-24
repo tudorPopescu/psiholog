@@ -9,60 +9,77 @@ import { selectCurrentUser } from '../../redux/user/user.reselect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faPowerOff, faIdBadge, faKey } from '@fortawesome/free-solid-svg-icons';
 import { setCurrentUser } from '../../redux/user/user.actions';
+import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 
 import  { ADMIN_HEADER_LINKS, CLIENT_HEADER_LINKS } from './header.data';
 
+// import logo from '../../assets/images/logo_100x100.png';
+// import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo-no-bg.png';
 import './header.styles.scss';
 
 const Header = ({ setCurrentUser, currentUser, history }) => {
   let links = [];
-  const { first_name, last_name } = currentUser;
 
-  if (currentUser.role === 'sa' || currentUser.role === 'admin') {
+  if (currentUser) {
     links = ADMIN_HEADER_LINKS;
   } else {
     links = CLIENT_HEADER_LINKS;
   }
 
   return (
-    <div className='header'>
-      <div className='row'>
-        <div className='col-sm-1'>
-          <div className='logo' onClick={() => history.push('/')}></div>
-        </div>
-        <div className='col-sm-7 links-wrap'>
-          {
-            _.map(links, link => (
-              link.dropdown ?
-              <Dropdown key={link.name}>
-                <Dropdown.Toggle>{link.icon} {link.name}</Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  {
-                    _.map(link.children, child => (
-                      <Link key={child.name} to={child.path}>{child.name}</Link>
-                    ))
-                  }
-                </Dropdown.Menu>
-              </Dropdown>
-              :
-              <Link key={link.name} to={link.path}>{link.icon} {link.name}</Link>
-            ))
-          }
-        </div>
-        <div className='col-sm-4 user-wrap'>
-          <Dropdown>
-            <Dropdown.Toggle><FontAwesomeIcon icon={faCog} className='fa-spin' /> {first_name} {last_name}</Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Link to='/'><FontAwesomeIcon icon={faIdBadge} /> MODIFICARE PROFIL</Link>
-              <Link to='/'><FontAwesomeIcon icon={faKey} /> RESETARE PAROLA</Link>
-            </Dropdown.Menu>
-          </Dropdown>
-          <span className='logout' onClick={() => setCurrentUser(null)}><FontAwesomeIcon icon={faPowerOff} /> DECONECTARE</span>
-        </div>
+    <div className='row' id='header'>
+      <div className='col-12'>
+        <Navbar className='navbar' expand="lg">
+          <div>
+            <Link to='/' className='navbar-brand me-0'>
+              <img className='logo' src={logo} alt='Psiholog Gherasă Iulia' />
+            </Link>
+            <div className='title-wrap'>
+              <span className='title'>Psiholog Iulia Gherasă</span>
+              <span className='subtitle'>Cabinet psihologic</span>
+            </div>
+          </div>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <ul className='navbar-nav ms-auto'>
+              <li className='navbar-item active'><Link className='nav-link' to='/'>Acasă</Link></li>
+              <li className='navbar-item active'><Link className='nav-link' to='/about'>Despre mine</Link></li>
+              <li className='navbar-item active'><Link className='nav-link' to='/services'>Servicii</Link></li>
+              <li className='navbar-item active'><Link className='nav-link' to='/price'>Tarife</Link></li>
+              <li className='navbar-item active'><Link className='nav-link' to='/appointment'>Programări online</Link></li>
+              <li className='navbar-item active'><Link className='nav-link' to='/contact'>Contact</Link></li>
+            </ul>
+          </Navbar.Collapse>
+        </Navbar>
       </div>
     </div>
+    // <div className='row' id='header'>
+    //   <div className='col-12'>
+    //     <nav className='navbar navbar-expand-lg navbar-light'>
+          // <Link to='/' className='navbar-brand me-0'>
+          //   <img className='logo' src={logo} alt='Psiholog Gherasă Iulia' />
+          // </Link>
+          // <div>
+          //   <span className='title'>Psiholog Iulia Gherasă</span>
+          //   <span className='subtitle'>Cabinet psihologic</span>
+          // </div>
+    //       <button className='navbar-toggler menu-toggle' type='button' data-toggle='collapse' data-target='#toggleHeader' aria-controls='toggleHeader' aria-expanded='false' aria-label='Toggle navigation'>
+    //         <span className='navbar-toggler-icon'></span>
+    //       </button>
+    //       <div className='collapse navbar-collapse' id='toggleHeader'>
+            // <ul className='navbar-nav ms-auto'>
+            //     <li className='navbar-item active'><Link className='nav-link' to='/'>Acasă</Link></li>
+            //     <li className='navbar-item active'><Link className='nav-link' to='/about'>Despre mine</Link></li>
+            //     <li className='navbar-item active'><Link className='nav-link' to='/services'>Servicii</Link></li>
+            //     <li className='navbar-item active'><Link className='nav-link' to='/price'>Tarife</Link></li>
+            //     <li className='navbar-item active'><Link className='nav-link' to='/appointment'>Programare online</Link></li>
+            //     <li className='navbar-item active'><Link className='nav-link' to='/contact'>Contact</Link></li>
+            // </ul>
+    //       </div>
+    //     </nav>
+    //   </div>
+    // </div>
   );
 };
 

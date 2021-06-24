@@ -1,9 +1,9 @@
 import { Switch } from 'react-router-dom'
-import Routes from './router/router';
+import Routes from './routes/routes';
 
 function App() {
   return (
-    <div className="App container-fluid">
+    <div className="container-fluid">
       <Switch>
         <Routes />
       </Switch>
