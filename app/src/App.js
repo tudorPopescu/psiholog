@@ -3,7 +3,7 @@ import Routes from './routes/routes';
 
 function App() {
   return (
-    <div className="container-fluid">
+    <div>
       <Switch>
         <Routes />
       </Switch>
