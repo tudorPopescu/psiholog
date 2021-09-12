@@ -10,7 +10,7 @@ import { Navbar } from 'react-bootstrap';
 import logo from '../../assets/images/logo-no-bg.png';
 import './header.styles.scss';
 
-const Header = ({ setCurrentUser, currentUser }) => (
+const Header = ({ location, setCurrentUser, currentUser }) => (
   <div id='header'>
     <div className='col-12'>
       <Navbar className='navbar' expand="lg">
@@ -26,12 +26,12 @@ const Header = ({ setCurrentUser, currentUser }) => (
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <ul className='navbar-nav ms-auto'>
-            <li className='navbar-item active'><Link className='nav-link' to='/'>Acasă</Link></li>
-            <li className='navbar-item active'><Link className='nav-link' to='/about'>Despre mine</Link></li>
-            <li className='navbar-item active'><Link className='nav-link' to='/services'>Servicii</Link></li>
-            <li className='navbar-item active'><Link className='nav-link' to='/price'>Tarife</Link></li>
-            <li className='navbar-item active'><Link className='nav-link' to='/appointment'>Programări online</Link></li>
-            <li className='navbar-item active'><Link className='nav-link' to='/contact'>Contact</Link></li>
+            <li className={`navbar-item ${location.pathname === '/' ? 'active': ''}`}><Link className='nav-link' to='/'>Acasă</Link></li>
+            <li className={`navbar-item`}><Link className='nav-link' to='/about'>Despre mine</Link></li>
+            <li className={`navbar-item`}><Link className='nav-link' to='/services'>Servicii</Link></li>
+            <li className={`navbar-item`}><Link className='nav-link' to='/price'>Tarife</Link></li>
+            <li className={`navbar-item`}><Link className='nav-link' to='/appointment'>Programări online</Link></li>
+            <li className={`navbar-item`}><Link className='nav-link' to='/contact'>Contact</Link></li>
           </ul>
         </Navbar.Collapse>
       </Navbar>

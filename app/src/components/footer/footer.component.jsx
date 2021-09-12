@@ -19,7 +19,7 @@ const Footer = () => {
               <blockquote className="blockquote mb-0">
                 <ul className='navbar-nav ms-auto'>
                   <li className='navbar-item'><Link className='nav-link' to='/services'><FontAwesomeIcon icon={faAngleRight} /> Evaluarea psihologică clinică</Link></li>
-                  <li className='navbar-item'><Link className='nav-link' to='/services'><FontAwesomeIcon icon={faAngleRight} /> Evaluarea psihologică învederea selecției pentru angajare/admitere</Link></li>
+                  <li className='navbar-item'><Link className='nav-link' to='/services'><FontAwesomeIcon icon={faAngleRight} /> Evaluarea psihologică în vederea selecției pentru angajare/admitere</Link></li>
                   <li className='navbar-item'><Link className='nav-link' to='/services'><FontAwesomeIcon icon={faAngleRight} /> Coaching/Dezvoltare personală</Link></li>
                   <li className='navbar-item'><Link className='nav-link' to='/services'><FontAwesomeIcon icon={faAngleRight} /> Meditație</Link></li>
                   <li className='navbar-item'><Link className='nav-link' to='/services'><FontAwesomeIcon icon={faAngleRight} /> Hipnoză</Link></li>
