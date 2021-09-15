@@ -27,7 +27,7 @@ const Header = ({ location, setCurrentUser, currentUser }) => (
         <Navbar.Collapse id="basic-navbar-nav">
           <ul className='navbar-nav ms-auto'>
             <li className={`navbar-item ${location.pathname === '/' ? 'active': ''}`}><Link className='nav-link' to='/'>Acasă</Link></li>
-            <li className={`navbar-item`}><Link className='nav-link' to='/about'>Despre mine</Link></li>
+            <li className={`navbar-item ${location.pathname === '/about' ? 'active': ''}`}><Link className='nav-link' to='/about'>Despre mine</Link></li>
             <li className={`navbar-item`}><Link className='nav-link' to='/services'>Servicii</Link></li>
             <li className={`navbar-item`}><Link className='nav-link' to='/price'>Tarife</Link></li>
             <li className={`navbar-item`}><Link className='nav-link' to='/appointment'>Programări online</Link></li>
