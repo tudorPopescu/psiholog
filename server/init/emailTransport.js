@@ -1,22 +1,22 @@
 exports.createTransport = config => {
-	if (config.env === 'production') {
-		let nodemailer = require('nodemailer');
-		//console.log('Init email transport');
-		return nodemailer.createTransport({
-			host: 'smtp.gmail.com',
-			port: 465,
-			secure: true,
-			auth: {
-				type: 'OAuth2',
-				user: 'development.yourconsulting@gmail.com',
+  // if (config.env === 'production') {
+    let nodemailer = require('nodemailer');
 
-				clientId: '173143903361-s0cga8h908j9sg29m3oiaprjgtfi2b7p.apps.googleusercontent.com',
-				clientSecret: 'NDf7tinVH_vK4hLbxA_-Fw80',
+    return nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        type: 'OAuth2',
+        user: 'psihologiuliagherasa@gmail.com',
 
-				accessToken: 'ya29.a0AfH6SMCUyVBwqhkhuXOob2yhCSMx0lOCN1ewtqnnEVQYVNd4yf7KUvjBnmDcH91qL6YVa2YRS3Ml5ZLjMFMxnQvHIQO61ZtuCIsSmoRSYTjytg07ve5W4tqMCFSDPz9bWIawXkNAgjSCX7A-VXyYhw-inSQjcjPQCvw',
-				refreshToken: '1//04CqPYl_cVTWoCgYIARAAGAQSNwF-L9IrQefJQ5XQUqsgVhNRE3k2h5KvclW-sULn2U3n1VzhQmWcYna6QAMBKJgGd9nzux3zkww',
-				expires: 1484314697598
-			}
-		});
-	}
+        clientId: '215141620018-nsn1jct263ruatcd2cmdm3t7j7res1mq.apps.googleusercontent.com',
+        clientSecret: 's7QWL8GV56Hc-OasDBFH0KyC',
+
+        accessToken: 'ya29.a0ARrdaM-ppFCmkYtqeGfOYvmSNcit1EtpOz-F_OUZyNe5XvHHM0xVEr77XTgRICRrqLLFDOWXFNaqyfl6FFRSVo0zUhzFIhJguwz7rLQhFGwP6vdpGPmKOmoyLfkYtb9xQH8dIeG-vOcgpFClNMljBwq9hBJP',
+        refreshToken: '1//04Z2-6DhFIEMWCgYIARAAGAQSNwF-L9Irb5_yAjr00-vd1zD_strdLemZ2O35B87QrhPZi5Un5EOTOs1au9GhwJWxpaAFgqGbQvU',
+        expires: 1484314697598
+      }
+    });
+  // }
 };

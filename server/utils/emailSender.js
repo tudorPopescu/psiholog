@@ -1,5 +1,6 @@
-module.exports = smtpTransportYour => {
+module.exports = db => {
   'use strict';
+  const {success: rhs} = require('../authorization/requestHandler');
 
   function getHtmlBody(unitate, cui, email, pass, resetPass) {
     resetPass = resetPass ? ' nouă' : '';
@@ -55,7 +56,7 @@ module.exports = smtpTransportYour => {
           subject: 'YourConsulting - Impozite si Taxe',
           html: getHtmlBody(unitate, cui, email, pass, resetPass)
         };
-        smtpTransportYour.sendMail(mailOptions, (error) => {
+        global.smtpTransportYour.sendMail(mailOptions, (error) => {
           if (error) {
             console.log('Email send err: ', error);
           } else {
@@ -75,7 +76,7 @@ module.exports = smtpTransportYour => {
           subject: 'YourConsulting - Eroare Salarizare',
           text: text
         };
-        smtpTransportYour.sendMail(mailOptions, error => {
+        global.smtpTransportYour.sendMail(mailOptions, error => {
           if (error) {
             console.log('Email send err: ', error);
           } else {
@@ -85,6 +86,31 @@ module.exports = smtpTransportYour => {
       } else {
         return null;
       }
+    },
+
+    sendMailContact: (mail, res) => {
+      const logError = require('../utils/utils')(db).logError;
+
+      let mailOptions = {
+        from: 'Psiholog Iulia Gerasa',
+        to: ['psihologiuliagherasa@gmail.com'],
+        subject: `Contact Psiholog Iulia Gherasa`,
+        html: `
+          <p style="margin-bottom: 5px;">Mail Contact trimis de către:<p/>
+          <p style="margin-bottom: 5px;">Nume: <b>${mail.last_name}</b> Prenume: <b>${mail.first_name}</b></p>
+          <p style="margin-bottom: 5px;">Telefon: <b>${mail.phone}</b></p>
+          <p style="margin-bottom: 5px;">Email: <b>${mail.email}</b></p>
+          <p style="margin-bottom: 5px;">Mesaj: <b>${mail.message}</b></p>
+        `
+      };
+
+      global.smtpTransportYour.sendMail(mailOptions, e => {
+        if (e) {
+          logError(null, 'emailSender - sendMailContact', e, res)
+        } else {
+          rhs(res);
+        }
+      });
     }
   };
 };

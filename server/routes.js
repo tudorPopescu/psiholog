@@ -8,7 +8,6 @@ module.exports = app => {
 
 	/* LOGIN */
 	app.post('/login', require('./authorization/jwtInit')(app));
-	// app.use('/api/refreshToken', requireLogin, require('./utils/refreshToken')(app));
 
 	/* USER */
 	app.use('/api/user', requireLogin, require('./routes/user')(app));
@@ -22,6 +21,9 @@ module.exports = app => {
 
 	/* Service */
 	app.use('/api/service', requireLogin, require('./routes/service')(app));
+
+	/* Contact */
+	app.use('/api/contact', require('./routes/contact')(app));
 
 	app.route('*/:url(api|auth|components|app|bower_components|assets)/*').get(errors[404]);
 

@@ -1,7 +1,7 @@
 module.exports = db => {
   'use strict';
   const {error: rh} = require('../authorization/requestHandler');
-  const emailSender = require('./emailSender')(global.smtpTransportYour);
+  // const emailSender = require('./emailSender')(db);
   const _ = require('lodash');
   const async = require('async');
   const fs = require('fs');
@@ -12,7 +12,7 @@ module.exports = db => {
     let text = 'Data eroare: ' + (new Date()) + '\n\n';
     text += (user && user.unit) ? ('Unitate: ' + user.unit.name + ', CUI: ' + user.unit.cui + (user ? ', id: ' + user.id : null) + '\n\n') : 'server side problems';
     text += 'Acțiune: ' + action + '\n\nEroare: ' + err.toString();
-    emailSender.sendMailErr(text);
+    // emailSender.sendMailErr(text);
     db.models.LogError.create({id_user: user ? user.id : null, action: action, error: err ? err.toString() : '', detail: err ? JSON.stringify(err, null, 4) : ''}).then(() => {
       if (res) {
         res.status(400);

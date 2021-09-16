@@ -12,6 +12,7 @@ import ClientHomePage from '../pages/client/home-page/home-page.component';
 import AboutMe from '../pages/client/about-me/about-me.component';
 import Services from '../pages/client/services/services.component';
 import Price from '../pages/client/price/price.component';
+import Contact from '../pages/client/contact/contact.component';
 
 const Routes = ({ currentUser }) => {
   if (!currentUser) {
@@ -22,6 +23,7 @@ const Routes = ({ currentUser }) => {
         <Route path='/about' component={AboutMe} exact strict />
         <Route path='/services' component={Services} exact strict />
         <Route path='/price' component={Price} exact strict />
+        <Route path='/contact' component={Contact} exact strict />
         <Footer />
       </Router>
     );

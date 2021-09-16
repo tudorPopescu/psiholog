@@ -29,9 +29,9 @@ const Header = ({ location, setCurrentUser, currentUser }) => (
             <li className={`navbar-item ${location.pathname === '/' ? 'active': ''}`}><Link className='nav-link' to='/'>Acasă</Link></li>
             <li className={`navbar-item ${location.pathname === '/about' ? 'active': ''}`}><Link className='nav-link' to='/about'>Despre mine</Link></li>
             <li className={`navbar-item ${location.pathname === '/services' ? 'active': ''}`}><Link className='nav-link' to='/services'>Servicii</Link></li>
-            <li className={`navbar-item`}><Link className='nav-link' to='/price'>Tarife</Link></li>
-            <li className={`navbar-item`}><Link className='nav-link' to='/appointment'>Programări online</Link></li>
-            <li className={`navbar-item`}><Link className='nav-link' to='/contact'>Contact</Link></li>
+            <li className={`navbar-item ${location.pathname === '/price' ? 'active': ''}`}><Link className='nav-link' to='/price'>Tarife</Link></li>
+            <li className={`navbar-item ${location.pathname === '/appointment' ? 'active': ''}`}><Link className='nav-link' to='/appointment'>Programări online</Link></li>
+            <li className={`navbar-item ${location.pathname === '/contact' ? 'active': ''}`}><Link className='nav-link' to='/contact'>Contact</Link></li>
           </ul>
         </Navbar.Collapse>
       </Navbar>
