@@ -10,6 +10,8 @@ import Footer from '../components/footer/footer.component';
 
 import ClientHomePage from '../pages/client/home-page/home-page.component';
 import AboutMe from '../pages/client/about-me/about-me.component';
+import Services from '../pages/client/services/services.component';
+import Price from '../pages/client/price/price.component';
 
 const Routes = ({ currentUser }) => {
   if (!currentUser) {
@@ -18,6 +20,8 @@ const Routes = ({ currentUser }) => {
         <Header />
         <Route path='/' component={ClientHomePage} exact strict  />
         <Route path='/about' component={AboutMe} exact strict />
+        <Route path='/services' component={Services} exact strict />
+        <Route path='/price' component={Price} exact strict />
         <Footer />
       </Router>
     );
