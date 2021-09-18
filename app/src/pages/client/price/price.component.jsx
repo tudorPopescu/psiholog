@@ -10,16 +10,16 @@ class Price extends React.Component {
 
     this.state = {
       prices: [
-        { name: 'Examen psihologic pentru Comisia de Handicap (Q.I., GAFS, MMSE)', price: '150' },
+        { name: 'Examen psihologic pentru Comisia de Handicap', price: '150' },
         { name: 'Evaluare psihologică', price: '150' },
         { name: 'Examen psihologic copii clasa 0', price: '100' },
         { name: 'Examen psihologic copii CES (pentru orientare școlară)', price: '100' },
-        { name: 'Examen psihologic pentru Comisia de Expertiză Medicală a Capacității de Muncă (Q.I., GAFS, MMSE)', price: '150' },
+        { name: 'Examen psihologic pentru Comisia de Expertiză Medicală a Capacității de Muncă', price: '150' },
         { name: 'Examen psihologic copii cu dizabilități pentru Comisia de Handicap', price: '100' },
         { name: 'Evaluare psihologică complexă periodică', price: '80' },
         { name: 'Deplasarea la domiciliu pentru pacienții nedeplasabili', price: '250' },
-        { name: 'Consiliere psihologică: 15', price: 'RON' },
-        { name: 'Dezvoltare personală: 15', price: 'RON' },
+        { name: 'Consiliere psihologică', price: '15' },
+        { name: 'Dezvoltare personală', price: '15' },
         { name: 'Aviz psihologic funcție de conducere', price: '90' },
         { name: 'Aviz psihologic concurs instituție publică', price: '90' },
         { name: 'Aviz psihologic cadru didactic', price: '80' },
@@ -47,7 +47,7 @@ class Price extends React.Component {
     return (
       <div className='price'>
         <div className='row mx-0 mt-2'>
-          <div className='col-12 fw-bold'>
+          <div className='col-12 breadcrumbs fw-bold'>
             <Link className='nav-link px-0 d-inline-block' to='/'>Acasă</Link>
             <span className='mx-1'>&gt;</span>
             <Link className='nav-link px-0 d-inline-block active' to='/price'>Tarife</Link>
@@ -59,9 +59,9 @@ class Price extends React.Component {
               map(prices, (r, i) => (
                 <div className='col-12 col-md-6 col-lg-4' key={i}>
                   <div className='card'>
-                    <h5 className='card-title fst-italic'>{r.name}</h5>
+                    <h5 className='title fst-italic'>{r.name}</h5>
                     <hr />
-                    <h4 className='card-subtitle text-center pt-3 fs-1'>{r.price} RON</h4>
+                    <h4 className='subtitle text-center pt-3 fs-4'>{r.price} RON</h4>
                   </div>
                 </div>
               ))

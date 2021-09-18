@@ -4,16 +4,16 @@
   background-color: $white;
   border-bottom: 1px solid $grey-3;
 
-  @media (min-width: 1200px) {
-    padding: 0 70px;
-  }
-
   .navbar {
     padding: 0;
   }
 
   .logo {
-    width: 150px;
+    width: 100px;
+
+    @media (min-width: 1200px) {
+      min-width: 150px;
+    }
   }
 
   .navbar-item {
@@ -35,31 +35,6 @@
     &:last-of-type {
       border-bottom: 0;
     }
-
-    &.active {
-      @media (min-width: 992px) {
-        border-bottom: 2px solid $gold;
-      }
-    }
-  }
-
-  .nav-link {
-    font-family: $Lato-bold;
-    font-weight: 700;
-    font-size: 24px;
-    letter-spacing: 1px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    &:hover {
-      color: $gold;
-    }
-
-    @media (min-width: 992px) {
-      font-size: 18px;
-      padding-top: 0;
-      padding-bottom: 2px;
-    }
   }
 
   .menu-toggle {
@@ -77,22 +52,11 @@
     vertical-align: middle;
   }
 
-  .title {
-    font-family: $Lato-bold;
-    font-size: 24px;
-    display: block;
-    letter-spacing: 1px;
-  }
-
-  .subtitle {
-    font-family: $Lato-italic;
-    font-size: 20px;
-    display: block;
-    letter-spacing: 1px;
-  }
-
   .navbar-toggler {
-    font-size: 30px;
+    border: 1px solid $gold;
+    font-size: 20px;
+    padding: 5px;
+
     &:focus {
       box-shadow: none !important;
     }
