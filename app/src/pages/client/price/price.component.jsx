@@ -10,9 +10,30 @@ class Price extends React.Component {
 
     this.state = {
       prices: [
-        {name: 'Evaluarea psihologică clinică a adultului', price: 60},
-        {name: 'Evaluarea psihologică clinică a adultului', price: 60},
-        {name: 'Evaluarea psihologică clinică a adultului', price: 60}
+        { name: 'Examen psihologic pentru Comisia de Handicap (Q.I., GAFS, MMSE)', price: '150' },
+        { name: 'Evaluare psihologică', price: '150' },
+        { name: 'Examen psihologic copii clasa 0', price: '100' },
+        { name: 'Examen psihologic copii CES (pentru orientare școlară)', price: '100' },
+        { name: 'Examen psihologic pentru Comisia de Expertiză Medicală a Capacității de Muncă (Q.I., GAFS, MMSE)', price: '150' },
+        { name: 'Examen psihologic copii cu dizabilități pentru Comisia de Handicap', price: '100' },
+        { name: 'Evaluare psihologică complexă periodică', price: '80' },
+        { name: 'Deplasarea la domiciliu pentru pacienții nedeplasabili', price: '250' },
+        { name: 'Consiliere psihologică: 15', price: 'RON' },
+        { name: 'Dezvoltare personală: 15', price: 'RON' },
+        { name: 'Aviz psihologic funcție de conducere', price: '90' },
+        { name: 'Aviz psihologic concurs instituție publică', price: '90' },
+        { name: 'Aviz psihologic cadru didactic', price: '80' },
+        { name: 'Aviz psihologic angajare', price: '50' },
+        { name: 'Aviz psihologic control periodic', price: '50' },
+        { name: 'Aviz psihologic admitere concurs', price: '80' },
+        { name: 'Aviz psihologic obținere/prelungire permis port armă', price: '100' },
+        { name: 'Aviz psihologic înființare societate pază și protecție', price: '100' },
+        { name: 'Aviz psihologic încadrare/concurs M.A.I./M.Ap.N./A.N.I./A.N.P.', price: '100' },
+        { name: 'Aviz psihologic voluntariat I.S.U./S.M.U.R.D.', price: '50' },
+        { name: 'Aviz psihologic atestat detectiv particular', price: '100' },
+        { name: 'Aviz psihologic pirotehnician/artificier', price: '100' },
+        { name: 'Aviz psihologic angajare agent pază/polițist comunitar', price: '100' },
+        { name: 'Aviz psihologic agent pază și ordine', price: '100' }
       ]
     }
   }
@@ -35,8 +56,8 @@ class Price extends React.Component {
         <div className='container'>
           <div className='row mx-0 mt-5'>
             {
-              map(prices, r => (
-                <div className='col-12 col-md-6 col-lg-4'>
+              map(prices, (r, i) => (
+                <div className='col-12 col-md-6 col-lg-4' key={i}>
                   <div className='card'>
                     <h5 className='card-title fst-italic'>{r.name}</h5>
                     <hr />

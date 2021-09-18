@@ -11,7 +11,7 @@ import logo from '../../assets/images/logo-no-bg.png';
 import './header.styles.scss';
 
 const Header = ({ location, setCurrentUser, currentUser }) => (
-  <div id='header'>
+  <div id='header' className='row mx-0'>
     <div className='col-12'>
       <Navbar className='navbar' expand="lg">
         <div>
@@ -20,7 +20,7 @@ const Header = ({ location, setCurrentUser, currentUser }) => (
           </Link>
           <div className='title-wrap'>
             <span className='title'>Psiholog Iulia Gherasă</span>
-            <span className='subtitle'>Cabinet psihologic</span>
+            <span className='subtitle'>Cabinet Individual de Psihologie</span>
           </div>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

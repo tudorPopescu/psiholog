@@ -14,18 +14,6 @@ module.exports = (sequelize, DataType) => {
     phone: {
       type: DataType.STRING(12)
     },
-    role: {
-      type: DataType.STRING(50)
-    },
-    active: {
-      type: DataType.BOOLEAN
-    },
-    policy: {
-      type: DataType.BOOLEAN
-    },
-    current_month: {
-      type: DataType.DATE
-    },
     password: {
       type: DataType.STRING
     },
@@ -41,6 +29,5 @@ module.exports = (sequelize, DataType) => {
 	}, {
 		timestamps: true
 	});
-  // model.belongsTo(sequelize.models.Unit, {foreignKey: 'id_unit', onDelete: 'cascade'});
 	return model;
 };
