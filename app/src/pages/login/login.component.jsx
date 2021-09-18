@@ -79,7 +79,6 @@ class LoginPage extends React.Component {
               <input className='form-control' name='password' autoComplete='off' value={password} onChange={this.handleChange} type='password' placeholder='Parola' />
               <button className='btn btn-primary btn-block' onClick={this.handleSubmit}>Autentificare</button>
             </div>
-            <span className='forgot float-end'>Ați uitat parola?</span>
             <div className='clearfix'></div>
             {message ? <div className='error mt-3 text-center text-danger'>{message}</div> : null}
           </form>

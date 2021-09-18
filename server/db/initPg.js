@@ -28,8 +28,8 @@ module.exports = function initPg(config) {
     sequelize.authenticate().then(() => {
 
       const db = require('../models')(sequelize, Sequelize);
-      //const dbScripts = require('./dbScripts');
-      //dbScripts.syncColumns(db);
+      // const dbScripts = require('./dbScripts')(db);
+      // dbScripts.createUser();
       resolve(db);
       console.log('Database connection successfully.');
 

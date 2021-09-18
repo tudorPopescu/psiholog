@@ -1,5 +1,3 @@
-module.exports = {
-  syncColumns: function syncColumns(db) {
-    
-  }
+module.exports = db => {
+  return {}
 };
