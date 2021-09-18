@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { toastr } from '../../../components/toastr/toastr.component';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Link } from 'react-router-dom';
+
 import Loading from '../../../components/loading/loading.component';
 
 import './contact.styles.scss';
@@ -32,7 +35,6 @@ class Contact extends React.Component {
       this.setState({ ...this.state, pending: true });
       axios.post('/api/contact', this.state).then(() => {
         toastr('success', 'Mesajul a fost trimis cu succes!');
-        console.log('aici intra >?');
         this.setState({ pending: false, required: {} })
       }).catch(() => toastr('error', 'Eroare la trimite/rea mesajului!'));
     }
@@ -76,10 +78,19 @@ class Contact extends React.Component {
 
   render() {
     const { first_name, last_name, email, phone, message, required, pending } = this.state;
+    const { google } = this.props;
 
     return (
       <div className='contact'>
         <Loading pending={pending} />
+        <div className='row mx-0 mt-2'>
+          <div className='col-12 breadcrumbs fw-bold'>
+            <Link className='nav-link px-0 d-inline-block' to='/'>Acasă</Link>
+            <span className='mx-1'>&gt;</span>
+            <Link className='nav-link px-0 d-inline-block active' to='/contact'>Contact</Link>
+          </div>
+        </div>
+
         <div className='container'>
           <div className='row mx-0'>
             <div className='col-12'>
@@ -133,6 +144,12 @@ class Contact extends React.Component {
                 </div>
               </form>
             </div>
+
+            <div className='row px-0'>
+              <div className='col-12 position-relative map-wrap'>
+                <Map google={google} zoom={20} initialCenter={{lat: -1.2884, lng: 36.8233}} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -140,4 +157,6 @@ class Contact extends React.Component {
   }
 }
 
-export default Contact;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyBqJPmzM-3zVRMj2tNfT4gtokuWCGgxgcY'
+})(Contact);

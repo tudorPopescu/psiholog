@@ -104,8 +104,12 @@
     transform: translateX(-15%) translateY(-25%) rotate(45deg);
   }
 
-  // #map {
-  //   height: 60vh;
-  //   width: 100%;
-  // }
+  .map-wrap {
+    height: 400px;
+    width: 100%;
+
+    @media (min-width: 1200px) {
+      height: 500px;
+    }
+  }
 }

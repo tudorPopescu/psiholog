@@ -26,6 +26,10 @@
   }
 
   .subtitle {
-    min-height: 195px;
+    min-height: 200px;
+
+    @media (min-width: 1200px) {
+      min-height: 220px;
+    }
   }
 }

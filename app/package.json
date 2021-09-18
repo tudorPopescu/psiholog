@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
+    "google-maps-react": "^2.0.6",
     "lodash": "^4.17.21",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
@@ -27,7 +28,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "reselect": "^4.0.0",
-    "rsuite": "^4.10.2",
+    "rsuite": "^4.10.3",
     "toastr": "^2.1.4",
     "web-vitals": "^1.1.2"
   },
