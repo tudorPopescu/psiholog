@@ -6,11 +6,26 @@
 
     svg {
       font-size: 30px;
-      color: $gold;
+      color: $white;
 
       @media (min-width: 992px) {
         font-size: 50px;
       }
     }
+  }
+
+  .wrap {
+    display: table;
+  }
+
+  .title {
+    display: table-cell;
+    height: 120px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .subtitle {
+    min-height: 195px;
   }
 }
