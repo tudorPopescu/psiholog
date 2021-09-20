@@ -26,34 +26,12 @@ module.exports = db => {
     });
   }
 
-  function logAction(idUser, action, details, isReport) {
-    if (idUser) {
-      db.models.LogAction.create({
-        id_user: idUser,
-        action: action,
-        details: details,
-        date: new Date(),
-        is_report: (isReport !== null || isReport !== undefined ? isReport : null)
-      }).catch(e => console.log('create logAction', e));
-    }
-  }
-
   function updateLastLogin(idUser) {
     if (idUser) {
       let tasks = [];
 
       tasks.push(cb => {
         db.query(`UPDATE "User" SET last_login = now() WHERE id = ${idUser}`).then(() => cb()).catch(e => cb(e));
-      });
-
-      tasks.push(cb => {
-        db.query(`UPDATE "LogAction" SET date = now(), details = details || ';' || now()::text WHERE action = 'LogIn' AND id_user = ${idUser}`).then(resp => {
-          if (resp[1].rowCount > 0) {
-            cb();
-          } else {
-            db.query(`INSERT INTO "LogAction" (action, date, details, "createdAt", "updatedAt", id_user) VALUES ('LogIn', now(), now(), now(), now(), ${idUser})`).then(() => cb()).catch(e => cb(e));
-          }
-        }).catch(e => cb(e));
       });
 
       async.parallel(tasks, () => {
@@ -69,7 +47,6 @@ module.exports = db => {
   return {
     /* ---------------------------------------------- NO DB utils ---------------------------------------------- */
     logError: logError,
-    logAction: logAction,
     updateLastLogin: updateLastLogin,
     replaceDiacritics: replaceDiacritics,
 

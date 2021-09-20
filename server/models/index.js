@@ -28,8 +28,7 @@ module.exports = function getModels(sequelize, Sequelize) {
 		{path: __dirname + '/user.js', sync: false},
 		{path: __dirname + '/appointment.js', sync: false},
 		{path: __dirname + '/service.js', sync: false},
-		{path: __dirname + '/logError.js', sync: false},
-		{path: __dirname + '/logAction.js', sync: false},
+		{path: __dirname + '/logError.js', sync: false}
 	];
 
 	let syncTables = [];

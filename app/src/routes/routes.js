@@ -12,7 +12,7 @@ import AboutMe from '../pages/client/about-me/about-me.component';
 import Services from '../pages/client/services/services.component';
 import Price from '../pages/client/price/price.component';
 import Contact from '../pages/client/contact/contact.component';
-import Appointment from '../pages/client/appointment/error.component';
+import Appointment from '../pages/client/appointment/appointment.component';
 
 import Login from '../pages/login/login.component';
 
@@ -26,12 +26,12 @@ const Routes = ({ currentUser }) => {
 
       { !currentUser &&
         <>
-        <Route path='/about' component={AboutMe} exact strict />
-        <Route path='/services' component={Services} exact strict />
-        <Route path='/price' component={Price} exact strict />
-        <Route path='/contact' component={Contact} exact strict />
-        <Route path='/login' component={Login} exact strict />
-        <Route path='/appointment' component={Appointment} exact strict />
+          <Route path='/about' component={AboutMe} exact strict />
+          <Route path='/services' component={Services} exact strict />
+          <Route path='/price' component={Price} exact strict />
+          <Route path='/contact' component={Contact} exact strict />
+          <Route path='/login' component={Login} exact strict />
+          <Route path='/appointment' component={Appointment} exact strict />
         </>
       }
       { currentUser &&

@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import { toastr } from '../../../components/toastr/toastr.component';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
-import { Link } from 'react-router-dom';
-
+import * as dayjs from 'dayjs';
 import Loading from '../../../components/loading/loading.component';
+import { toastr } from '../../../components/toastr/toastr.component';
+import { Link } from 'react-router-dom';
+import { DatePicker } from 'rsuite';
 
-import './contact.styles.scss';
+import './appointment.styles.scss';
 
-class Contact extends React.Component {
+class Appointment extends React.Component {
   constructor() {
     super();
 
@@ -18,13 +18,12 @@ class Contact extends React.Component {
       last_name: '',
       email: '',
       phone: '',
-      message: '',
+      date: '',
       required: {}
     }
   }
 
-  handleChange = e => {
-    const { name, value } = e.target;
+  handleChange = (name, value) => {
     this.setState({ ...this.state, [name]: value, required: { ...this.state.required, [name]: false, email_regex: [name] === 'email' ? false : this.state.required.email_regex } });
   }
 
@@ -33,16 +32,16 @@ class Contact extends React.Component {
 
     if (this.validation()) {
       this.setState({ ...this.state, pending: true });
-      axios.post('/api/contact', this.state).then(() => {
-        toastr('success', 'Mesajul a fost trimis cu succes!');
-        this.setState({ first_name: '', last_name: '', email: '', phone: '', message: '', success: true, pending: false, required: {} })
-      }).catch(() => toastr('error', 'Eroare la trimite/rea mesajului!'));
+      axios.post('/api/appointment', this.state).then(() => {
+        toastr('success', 'Programarea a fost făcută cu succes!');
+        this.setState({ first_name: '', last_name: '', email: '', phone: '', date: '', success: true, pending: false, required: {} });
+      }).catch(() => toastr('error', 'Eroare la realizarea programării!'));
     }
   }
 
   validation() {
     const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-    const { first_name, last_name, email, phone, message } = this.state;
+    const { first_name, last_name, email, phone, date } = this.state;
     const required = {};
     let ok = true;
 
@@ -66,8 +65,8 @@ class Contact extends React.Component {
       required.phone = true;
       ok = false;
     }
-    if (!message) {
-      required.message = true;
+    if (!date) {
+      required.date = true;
       ok = false;
     }
 
@@ -77,62 +76,56 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { first_name, last_name, email, phone, message, required, pending } = this.state;
-    const { google } = this.props;
+    const { first_name, last_name, email, phone, date, required, pending, success } = this.state;
 
     return (
-      <div className='contact'>
+      <div className='appointment'>
         <Loading pending={pending} />
+
         <div className='row mx-0 mt-2'>
           <div className='col-12 breadcrumbs fw-bold'>
             <Link className='nav-link px-0 d-inline-block' to='/'>Acasă</Link>
             <span className='mx-1'>&gt;</span>
-            <Link className='nav-link px-0 d-inline-block active' to='/contact'>Contact</Link>
+            <Link className='nav-link px-0 d-inline-block active' to='/appointment'>Programări online</Link>
           </div>
         </div>
 
         <div className='container'>
           <div className='row mx-0'>
             <div className='col-12'>
-              <h3 className='title fst-italic'>Str. Ana Ipătescu, nr. 10, bl. A, sc. C, ap. 2, Suceava</h3>
-              <h3 className='title fst-italic'>+4 0743 210 200</h3>
-              <h3 className='title fst-italic'>psihologiuliagherasa@gmail.com</h3>
-            </div>
-
-            <div className='col-12 col-lg-6'>
-              <h3 className='title'>Lăsați-mi un mesaj:</h3>
+              <h3 className='title fst-italic'>Completează datele necesare pentru o programare:</h3>
               <hr className='custom-hr' />
             </div>
 
-            <div className='col-12 contact-form'>
+            <div className='col-12 appointment-form'>
               <form className='row mx-0'>
                 <div className='col-12 col-lg-6 p-0'>
                   <div className='row mx-0'>
                     <div className='col-12 col-sm-6 pb-3 p-0 pe-sm-2 pe-lg-3 position-relative'>
                       <label className='label'>Nume*</label>
-                      <input className='form-control text-capitalize' name='first_name' value={first_name} onChange={this.handleChange} autoComplete='off' maxLength='150' />
+                      <input className='form-control text-capitalize' name='first_name' value={first_name} onChange={e => this.handleChange('first_name',  e.target.value)} autoComplete='off' maxLength='150' />
                       { required.first_name && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 ps-sm-2 ps-lg-3 position-relative'>
                       <label className='label'>Prenume*</label>
-                      <input className='form-control text-capitalize' name='last_name' value={last_name} onChange={this.handleChange} autoComplete='off' maxLength='150' />
+                      <input className='form-control text-capitalize' name='last_name' value={last_name} onChange={e => this.handleChange('last_name',  e.target.value)} autoComplete='off' maxLength='150' />
                       { required.last_name && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 pe-sm-2 pe-lg-3 position-relative'>
                       <label className='label'>Email*</label>
-                      <input className='form-control' value={email} name='email' onChange={this.handleChange} autoComplete='off' type='email' maxLength='150' />
+                      <input className='form-control' value={email} name='email' onChange={e => this.handleChange('email',  e.target.value)} autoComplete='off' type='email' maxLength='150' />
                       { required.email && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                       { required.email_regex && <small className='error-msg'>Adresa de email nu este validă!</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 ps-sm-2 ps-lg-3 position-relative'>
                       <label className='label'>Telefon*</label>
-                      <input className='form-control' value={phone} name='phone' onChange={this.handleChange} autoComplete='off' type='phone' maxLength='20' />
+                      <input className='form-control' value={phone} name='phone' onChange={e => this.handleChange('phone',  e.target.value)} autoComplete='off' type='phone' maxLength='20' />
                       { required.phone && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
-                    <div className='textarea-wrap col-12 pb-3 p-0 position-relative'>
-                      <label className='label'>Mesaj*</label>
-                      <textarea className='form-control' rows='4' name='message' value={message} onChange={this.handleChange} autoComplete='off' maxLength='1000'></textarea>
-                      { required.message && <small className='error-msg'>Câmpul este obligatoriu.</small> }
+                    <div className='textarea-wrap col-12 col-sm-6 pb-3 p-0 pe-lg-3 position-relative'>
+                      <label className='label'>Data*</label>
+                      <DatePicker className='form-control d-block' name='date' disabledDate={date => date < new Date() || new Date(date).getDay() === 0 || new Date(date).getDay() === 6 } value={date} onOk={date => this.handleChange('date',  date)} locale={locale} placeholder='zz.ll.aaaa' isoWeek ranges={ranges} format='DD.MM.YYYY' />
+                      { required.date && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                   </div>
                 </div>
@@ -142,14 +135,15 @@ class Contact extends React.Component {
                     <span className='text-uppercase'>Trimite</span>
                   </button>
                 </div>
+
+                { success &&
+                  <div className='col-12 p-0 pt-3'>
+                    <span className='text-success subtitle fw-bold fst-italic'>Mulțumesc pentru programare.<br/>Te voi contacta în cel mai scurt timp posibil!</span>
+                  </div>
+                }
               </form>
             </div>
 
-            <div className='row px-0'>
-              <div className='col-12 position-relative map-wrap'>
-                <Map google={google} zoom={20} initialCenter={{lat: -1.2884, lng: 36.8233}} />
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -157,6 +151,21 @@ class Contact extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBqJPmzM-3zVRMj2tNfT4gtokuWCGgxgcY'
-})(Contact);
+export default Appointment;
+
+const locale= {
+  sunday: 'Du',
+  monday: 'Lu',
+  tuesday: 'Ma',
+  wednesday: 'Mie',
+  thursday: 'Joi',
+  friday: 'Vi',
+  saturday: 'Sâ',
+  ok: 'Adaugă',
+  yesterday: 'Ieri'
+};
+
+const ranges = [{
+  label: 'Mâine',
+  value: new Date() + 1
+}]
