@@ -13,7 +13,7 @@ module.exports = (app, config)=> {
     timeout: 27000,
     onTimeout: function (req, res) {
       let logError = require('../utils/utils')(app.locals.db).logError;
-      logError(req.user, 'Request timeout', 'url: '+req.originalUrl);
+      logError('Request timeout', 'url: '+req.originalUrl);
       res.status(503).end();
     }
     //disable: ['write', 'setHeaders', 'send', 'json', 'end']

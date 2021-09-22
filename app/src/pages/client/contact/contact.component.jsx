@@ -77,7 +77,7 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { first_name, last_name, email, phone, message, required, pending } = this.state;
+    const { first_name, last_name, email, phone, message, required, pending, success } = this.state;
     const { google } = this.props;
 
     return (
@@ -144,6 +144,12 @@ class Contact extends React.Component {
                 </div>
               </form>
             </div>
+
+            { success &&
+              <div className='col-12 p-0 pt-3'>
+                <span className='text-success subtitle fw-bold fst-italic'>Mulțumesc pentru mesaj.<br/>Te voi contacta în cel mai scurt timp posibil!</span>
+              </div>
+            }
 
             <div className='row px-0'>
               <div className='col-12 position-relative map-wrap'>

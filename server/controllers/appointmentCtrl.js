@@ -6,7 +6,7 @@ module.exports = db => {
     create: (req, res) => {
       db.models.Appointment.create(req.body).then(() => {
         rhs(res)
-      }).catch(e => logError(req.user, 'appointmentCtrl - create', e, res));
+      }).catch(e => logError('appointmentCtrl - create', e, res));
     },
 
     findAll: (req, res) => {
@@ -16,7 +16,7 @@ module.exports = db => {
     destroy: (req, res) => {
       db.query(`DELETE FROM "Appointment" WHERE id = ${req.params.id}`, { type: db.QueryTypes.DELETE }).then(() => {
         rhs(res);
-      }).catch(e => logError('req.user', 'appointmentCtrl - destroy', e, res));
+      }).catch(e => logError('appointmentCtrl - destroy', e, res));
     }
   }
 }

@@ -9,17 +9,11 @@ module.exports = app => {
   /* LOGIN */
   app.post('/login', require('./authorization/jwtInit')(app));
 
-  /* USER */
-  app.use('/api/user', requireLogin, require('./routes/user')(app));
-
   /* LogError */
   app.use('/api/logError', requireLogin, require('./routes/logError')(app));
 
   /* Appointment */
   app.use('/api/appointment', require('./routes/appointment')(app));
-
-  /* Service */
-  app.use('/api/service', requireLogin, require('./routes/service')(app));
 
   /* Contact */
   app.use('/api/contact', require('./routes/contact')(app));
