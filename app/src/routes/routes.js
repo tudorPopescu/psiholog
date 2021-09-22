@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -19,6 +20,10 @@ import Login from '../pages/login/login.component';
 import Error from '../pages/admin/error/error.component';
 
 const Routes = ({ currentUser }) => {
+  if (currentUser) {
+    axios.defaults.headers.common['x-access-token'] = currentUser.token;
+  }
+
   return (
     <Router>
       <Header />
