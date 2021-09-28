@@ -5,6 +5,8 @@ import { cloneDeep, map } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
+import '../../../styles/_rsuite.scss';
+
 class Table extends Component {
   constructor() {
     super();

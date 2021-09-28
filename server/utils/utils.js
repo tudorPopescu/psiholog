@@ -4,7 +4,7 @@ module.exports = db => {
   // const emailSender = require('./emailSender')(db);
   const async = require('async');
 
-  function logError(user, action, err, res) {
+  function logError(action, err, res) {
     console.log(action, err);
     let text = 'Data eroare: ' + (new Date()) + '\n\n';
     text += 'Acțiune: ' + action + '\n\nEroare: ' + err.toString();

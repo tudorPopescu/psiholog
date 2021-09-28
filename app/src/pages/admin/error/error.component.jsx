@@ -44,15 +44,15 @@ class ErrorPage extends React.Component {
     this.setState({ pending: true });
     axios.delete(`/api/logError/${id}`).then(() => {
       this.setState({ pending: false, errors: filter(errors, r => r.id !== id)});
-      toastr.success('Eroarea a fost ștearsă cu succes!');
+      toastr('success', 'Eroarea a fost ștearsă cu succes!');
     }).catch(() => toastr('error', 'Eroare la ștergerea erorii!'));
   };
 
   handleDeleteAll = () => {
     this.setState({ pending: true });
-    axios.delete(`/api/logError/`).then(() => {
+    axios.delete('/api/logError').then(() => {
       this.setState({ pending: false, errors: []});
-      toastr.success('Erorile au fost șterse cu succes!');
+      toastr('success', 'Erorile au fost șterse cu succes!');
     }).catch(() => toastr('error', 'Eroare la ștergerea erorilor!'));
   };
 

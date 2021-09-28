@@ -17,7 +17,11 @@ module.exports = db => {
       WHERE l.id = ${req.params.id}`, {type: db.QueryTypes.SELECT}).then(resp => res.send(resp[0])).catch(e => logError(req.user, 'logErrorCtrl - find', e, res));
     },
 
-    destroyAll: (req, res) => db.query(`DELETE FROM "LogError`).then(() => rhs(res)).catch(e => logError('logErrorCtrl - destroyAll', e, res)),
+    destroyAll: (req, res) => {
+      db.query(`DELETE FROM "LoError"`).then(() => {
+        rhs(res);
+      }).catch(e => logError('logErrorCtrl - destroyAll', e, res));
+    },
 
     destroy: (req, res) => db.query(`DELETE FROM "LogError" WHERE id = ${req.params.id}`).then(() => rhs(res)).catch(e => logError('logErrorCtrl - destroy', e, res))
   };
