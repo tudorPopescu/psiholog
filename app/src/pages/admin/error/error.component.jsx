@@ -16,8 +16,6 @@ import Loading from '../../../components/loading/loading.component';
 import Table from '../../../components/rsuite/table/table.component';
 import ErrorModal from './modal/error-modal.component';
 
-import '../../../styles/_rsuite.scss';
-
 class ErrorPage extends React.Component {
   constructor() {
     super();

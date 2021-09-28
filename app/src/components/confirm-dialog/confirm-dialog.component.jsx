@@ -9,8 +9,8 @@ class ConfirmDialog extends React.Component {
       <div className='modal-container confirm-dialog'>
         <Modal className={className} autoFocus keyboard={false} backdrop={'static'} open={open} onClose={close} size={size ? size : 'md'}>
           <Modal.Header>
-            	<Modal.Title>{title}</Modal.Title>
-              <Divider />
+            <Modal.Title>{title}</Modal.Title>
+            <Divider />
           </Modal.Header>
           <Modal.Body style={{overflow: 'hidden'}}>
             {body}

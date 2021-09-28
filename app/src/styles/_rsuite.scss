@@ -1,3 +1,40 @@
+.input-label {
+  display: inline-block;
+  border: 1px solid #cbcbcb;
+  border-radius: 3px;
+  max-width: 100%;
+  font-weight: 400;
+  background-color: #ededed;
+  margin: 0;
+  height: 26px;
+  padding: 3px;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  &.sm {
+    font-size: 13px;
+    padding: 3px;
+    margin-bottom: 0;
+    background-color: #ebebec;
+  }
+}
+
 .rs-form-inline {
   .rs-form-group {
     margin-bottom: 5px;
@@ -344,6 +381,7 @@
     padding: 0;
     margin-top: 10px;
     margin-bottom: 10px;
+    overflow: auto !important;
   }
 }
 

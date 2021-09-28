@@ -56,27 +56,27 @@ class ErrorModal extends React.Component {
   handleBody = () => (
     <Grid fluid>
       <Row>
-        <Col xs={2} className='text-right'>
+        <Col xs={2} className='text-end'>
           <label>Acțiune</label>
         </Col>
         <Col xs={22}>
-          <label className='width-100 input-label'>{this.state.error.action}</label>
+          <label className='w-100 input-label'>{this.state.error.action}</label>
         </Col>
       </Row>
       <Row>
-        <Col xs={2} className='text-right'>
+        <Col xs={2} className='text-end'>
           <label>Eroare</label>
         </Col>
         <Col xs={22}>
-          <label className='width-100 input-label'>{this.state.error.error}</label>
+          <label className='w-100 input-label'>{this.state.error.error}</label>
         </Col>
       </Row>
       <Row>
-        <Col xs={2} className='text-right'>
+        <Col xs={2} className='text-end'>
           <label>Detalii</label>
         </Col>
         <Col xs={22}>
-          <pre className='width-100 sm'>{this.state.error.detail}</pre>
+          <pre className='w-100 sm pre sm'>{this.state.error.detail}</pre>
         </Col>
       </Row>
     </Grid>

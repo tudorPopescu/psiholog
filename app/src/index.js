@@ -8,7 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import App from './App';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'rsuite/dist/styles/rsuite-default.css';
+import 'rsuite/dist/rsuite.css';
 import './styles/global.scss';
 
 ReactDOM.render(

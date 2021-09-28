@@ -19,7 +19,8 @@ import Login from '../pages/login/login.component';
 
 import Error from '../pages/admin/error/error.component';
 
-const Routes = ({ currentUser }) => {
+const Routes = ({ currentUser, location }) => {
+  console.log(location);
   if (currentUser) {
     axios.defaults.headers.common['x-access-token'] = currentUser.token;
   }
