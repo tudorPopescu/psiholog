@@ -18,9 +18,11 @@ import Appointment from '../pages/client/appointment/appointment.component';
 import Login from '../pages/login/login.component';
 
 import Error from '../pages/admin/error/error.component';
+import AppointmentPage from '../pages/admin/appointment/appointment.component';
 
 const Routes = ({ currentUser, location }) => {
-  console.log(location);
+  const { pathname } = location;
+
   if (currentUser) {
     axios.defaults.headers.common['x-access-token'] = currentUser.token;
   }
@@ -41,7 +43,10 @@ const Routes = ({ currentUser, location }) => {
         </>
       }
       { currentUser &&
-        <Route path='/errors' component={Error} exact strict  />
+        <>
+          <Route path='/errors' component={Error} exact strict  />
+          <Route path='/appointment' component={AppointmentPage} exact strict  />
+        </>
       }
       <Footer />
     </Router>

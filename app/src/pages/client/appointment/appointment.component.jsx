@@ -122,9 +122,9 @@ class Appointment extends React.Component {
                       <input className='form-control' value={phone} name='phone' onChange={e => this.handleChange('phone',  e.target.value)} autoComplete='off' type='phone' maxLength='20' />
                       { required.phone && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
-                    <div className='textarea-wrap col-12 col-sm-6 pb-3 p-0 pe-lg-3 position-relative'>
+                    <div className='col-12 col-sm-6 pb-3 p-0 pe-lg-3 position-relative'>
                       <label className='label'>Data*</label>
-                      <DatePicker className='form-control d-block' name='date' disabledDate={date => date < new Date() || new Date(date).getDay() === 0 || new Date(date).getDay() === 6 } value={date} onOk={date => this.handleChange('date',  date)} locale={locale} placeholder='zz.ll.aaaa' isoWeek ranges={ranges} format='DD.MM.YYYY' />
+                      <DatePicker name='date' disabledDate={date => date < new Date() || new Date(date).getDay() === 0 || new Date(date).getDay() === 6 } value={date} onOk={date => this.handleChange('date',  date)} locale={locale} placeholder='zz.ll.aaaa' isoWeek ranges={ranges} format='DD.MM.YYYY' />
                       { required.date && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                   </div>

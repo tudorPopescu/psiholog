@@ -10,7 +10,9 @@ module.exports = db => {
     },
 
     findAll: (req, res) => {
-      res.json({id: 2});
+      db.query(`SELECT id, first_name, last_name, email, phone, TO_CHAR(date, 'dd.MM.yyyy') AS date_view, date FROM "Appointment" ORDER BY date DESC`, { type: db.QueryTypes.SELECT }).then(resp => {
+        res.send(resp);
+      }).catch(e => logError('appointmentCtrl - findAll', e, res));
     },
 
     destroy: (req, res) => {
