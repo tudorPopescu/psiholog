@@ -45,7 +45,7 @@ module.exports = function getModels(sequelize, Sequelize) {
     if (!tmp) {
       let modelName = fileTree[i].substring(fileTree[i].lastIndexOf('/') + 1, fileTree[i].indexOf('.js'));
       modelName = modelName.charAt(0).toUpperCase() + modelName.slice(1);
-      console.log('Nu este introdusă ruta pentru modelul: ' + modelName);
+      console.info('Nu este introdusă ruta pentru modelul: ' + modelName);
       let model = require(fileTree[i])(sequelize, Sequelize);
       syncTables.push(model);
     }
@@ -53,7 +53,7 @@ module.exports = function getModels(sequelize, Sequelize) {
 
   if (syncTables.length && process.env.RUN_CRON === 'true'){
     _.each(syncTables, file => {
-      console.log(file);
+      console.info(file);
       file.sync({alter: true, logging: false});
     });
   }

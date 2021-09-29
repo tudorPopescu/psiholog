@@ -32,7 +32,7 @@ module.exports = app=> {
           res.json({success: false, message: 'Utilizator inexistent'});
         }
       }).catch(e => {
-        console.log('Autentificare eșuată', e);
+        console.error('Autentificare eșuată', e);
         res.json({success: false, message: 'Autentificare eșuată'});
       })
     } else {

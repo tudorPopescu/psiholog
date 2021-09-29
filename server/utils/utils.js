@@ -1,14 +1,13 @@
 module.exports = db => {
   'use strict';
-  const {error: rh} = require('../authorization/requestHandler');
-  // const emailSender = require('./emailSender')(db);
+  const emailSender = require('./emailSender')(db);
   const async = require('async');
 
   function logError(action, err, res) {
-    console.log(action, err);
+    console.error(action, err);
     let text = 'Data eroare: ' + (new Date()) + '\n\n';
     text += 'Acțiune: ' + action + '\n\nEroare: ' + err.toString();
-    // emailSender.sendMailErr(text);
+    emailSender.sendMailErr(text);
     db.models.LogError.create({ action: action, error: err ? err.toString() : '', detail: err ? JSON.stringify(err, null, 4) : '' }).then(() => {
       if (res) {
         res.status(400);

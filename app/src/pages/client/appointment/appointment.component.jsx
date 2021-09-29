@@ -18,13 +18,13 @@ class Appointment extends React.Component {
       last_name: '',
       email: '',
       phone: '',
-      date: '',
+      date: null,
       required: {}
     }
   }
 
   handleChange = (name, value) => {
-    this.setState({ ...this.state, [name]: value, required: { ...this.state.required, [name]: false, email_regex: [name] === 'email' ? false : this.state.required.email_regex } });
+    this.setState({ ...this.state, [name]: name === 'date' ? new Date(value) : value, required: { ...this.state.required, [name]: false, email_regex: [name] === 'email' ? false : this.state.required.email_regex } });
   }
 
   handleSubmit = e => {
@@ -103,34 +103,34 @@ class Appointment extends React.Component {
                   <div className='row mx-0'>
                     <div className='col-12 col-sm-6 pb-3 p-0 pe-sm-2 pe-lg-3 position-relative'>
                       <label className='label'>Nume*</label>
-                      <input className='form-control text-capitalize' name='first_name' value={first_name} onChange={e => this.handleChange('first_name',  e.target.value)} autoComplete='off' maxLength='150' />
+                      <input className='form-control text-capitalize' name='first_name' value={first_name} onChange={e => this.handleChange('first_name',  e.target.value)} autoComplete='off' maxLength='60' />
                       { required.first_name && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 ps-sm-2 ps-lg-3 position-relative'>
                       <label className='label'>Prenume*</label>
-                      <input className='form-control text-capitalize' name='last_name' value={last_name} onChange={e => this.handleChange('last_name',  e.target.value)} autoComplete='off' maxLength='150' />
+                      <input className='form-control text-capitalize' name='last_name' value={last_name} onChange={e => this.handleChange('last_name',  e.target.value)} autoComplete='off' maxLength='60' />
                       { required.last_name && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 pe-sm-2 pe-lg-3 position-relative'>
                       <label className='label'>Email*</label>
-                      <input className='form-control' value={email} name='email' onChange={e => this.handleChange('email',  e.target.value)} autoComplete='off' type='email' maxLength='150' />
+                      <input className='form-control' value={email} name='email' onChange={e => this.handleChange('email',  e.target.value)} autoComplete='off' type='email' maxLength='90' />
                       { required.email && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                       { required.email_regex && <small className='error-msg'>Adresa de email nu este validă!</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 ps-sm-2 ps-lg-3 position-relative'>
                       <label className='label'>Telefon*</label>
-                      <input className='form-control' value={phone} name='phone' onChange={e => this.handleChange('phone',  e.target.value)} autoComplete='off' type='phone' maxLength='20' />
+                      <input className='form-control' value={phone} name='phone' onChange={e => this.handleChange('phone',  e.target.value)} autoComplete='off' type='phone' maxLength='11' />
                       { required.phone && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 pe-lg-3 position-relative'>
                       <label className='label'>Data*</label>
-                      <DatePicker name='date' disabledDate={date => date < new Date() || new Date(date).getDay() === 0 || new Date(date).getDay() === 6 } value={date} onOk={date => this.handleChange('date',  date)} locale={locale} placeholder='zz.ll.aaaa' isoWeek ranges={ranges} format='DD.MM.YYYY' />
+                      <DatePicker name='date' block disabledDate={date => date < new Date() || new Date(date).getDay() === 0 || new Date(date).getDay() === 6 } value={date} onOk={date => this.handleChange('date',  date)} oneTap onSelect={date => this.handleChange('date',  date)} onClean={() => this.setState({ date: null })} locale={locale} placeholder='zz.ll.aaaa' isoWeek ranges={ranges} format='dd.MM.yyyy' />
                       { required.date && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                   </div>
                 </div>
 
-                <div className='col-12 p-0 pt-3 pt-lg-1'>
+                <div className='col-12 p-0 pt-3 mt-4 pt-lg-1'>
                   <button className='submit-btn' onClick={this.handleSubmit}>
                     <span className='text-uppercase'>Trimite</span>
                   </button>

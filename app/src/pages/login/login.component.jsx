@@ -40,6 +40,7 @@ class LoginPage extends React.Component {
         } else {
           this.setState({ message: '' });
           setCurrentUser(resp.data);
+          this.props.history.push('/appointment');
         }
       }).catch(() => toastr('error', 'Eroare autentificare!'));
     } else {

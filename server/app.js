@@ -26,10 +26,10 @@ Promise.all([pg(config), phantomInit.createPhantomSession(app), emailTransport.c
   require('./routes')(app);
 
   app.listen(PORT, config.ip, () => {
-    console.log('Listening on port: %d, env: %s', PORT, config.env);
+    console.info('Listening on port: %d, env: %s', PORT, config.env);
     process.on('exit', () => {
-      console.log('exiting phantom session');
+      console.info('exiting phantom session');
       app.locals.ph.exit();
     });
   });
-}).catch(e => console.log('Init sequence error: ', e));
+}).catch(e => console.error('Init sequence error: ', e));

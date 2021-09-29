@@ -31,7 +31,7 @@ module.exports = function initPg(config) {
       // const dbScripts = require('./dbScripts')(db);
       // dbScripts.createUser();
       resolve(db);
-      console.log('Database connection successfully.');
+      console.info('Database connection successfully.');
 
     }).catch(e =>reject(e));
   });

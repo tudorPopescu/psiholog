@@ -1,11 +1,12 @@
 module.exports = db => {
   const { success: rhs } = require('../authorization/requestHandler');
   const logError         = require('../utils/utils')(db).logError;
+  const emailSender      = require('../utils/emailSender')(db);
 
   return {
     create: (req, res) => {
       db.models.Appointment.create(req.body).then(() => {
-        rhs(res)
+        emailSender.sendMailAppointment(req.body, res);
       }).catch(e => logError('appointmentCtrl - create', e, res));
     },
 

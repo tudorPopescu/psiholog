@@ -69,23 +69,26 @@
   }
 
   .rs-picker-date {
-    .active & {
-      .form-control & {
-        border: 1px solid $gold;
+    height: 38px !important;
+
+    .rs-picker-toggle {
+      border: 1px solid #ced4da !important;
+      border-radius: 4px !important;
+      height: 38px !important;
+      padding: 8px 6px !important;
+
+      &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      &.rs-picker-toggle-active {
+        box-shadow: none !important;
       }
     }
 
-    .rs-btn {
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      border: 0;
-    }
-
-    .rs-picker-toggle-caret,
-    .rs-picker-toggle-clean {
-      top: -1px !important;
+    .rs-picker-toggle-textbox {
+      padding-left: 6px !important;
     }
   }
 

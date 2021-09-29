@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { toastr } from '../../../components/toastr/toastr.component';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { Link } from 'react-router-dom';
 
 import Loading from '../../../components/loading/loading.component';
@@ -110,23 +110,23 @@ class Contact extends React.Component {
                   <div className='row mx-0'>
                     <div className='col-12 col-sm-6 pb-3 p-0 pe-sm-2 pe-lg-3 position-relative'>
                       <label className='label'>Nume*</label>
-                      <input className='form-control text-capitalize' name='first_name' value={first_name} onChange={this.handleChange} autoComplete='off' maxLength='150' />
+                      <input className='form-control text-capitalize' name='first_name' value={first_name} onChange={this.handleChange} autoComplete='off' maxLength='60' />
                       { required.first_name && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 ps-sm-2 ps-lg-3 position-relative'>
                       <label className='label'>Prenume*</label>
-                      <input className='form-control text-capitalize' name='last_name' value={last_name} onChange={this.handleChange} autoComplete='off' maxLength='150' />
+                      <input className='form-control text-capitalize' name='last_name' value={last_name} onChange={this.handleChange} autoComplete='off' maxLength='60' />
                       { required.last_name && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 pe-sm-2 pe-lg-3 position-relative'>
                       <label className='label'>Email*</label>
-                      <input className='form-control' value={email} name='email' onChange={this.handleChange} autoComplete='off' type='email' maxLength='150' />
+                      <input className='form-control' value={email} name='email' onChange={this.handleChange} autoComplete='off' type='email' maxLength='90' />
                       { required.email && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                       { required.email_regex && <small className='error-msg'>Adresa de email nu este validă!</small> }
                     </div>
                     <div className='col-12 col-sm-6 pb-3 p-0 ps-sm-2 ps-lg-3 position-relative'>
                       <label className='label'>Telefon*</label>
-                      <input className='form-control' value={phone} name='phone' onChange={this.handleChange} autoComplete='off' type='phone' maxLength='20' />
+                      <input className='form-control' value={phone} name='phone' onChange={this.handleChange} autoComplete='off' type='phone' maxLength='12' />
                       { required.phone && <small className='error-msg'>Câmpul este obligatoriu.</small> }
                     </div>
                     <div className='textarea-wrap col-12 pb-3 p-0 position-relative'>
@@ -142,18 +142,20 @@ class Contact extends React.Component {
                     <span className='text-uppercase'>Trimite</span>
                   </button>
                 </div>
+
+                { success &&
+                  <div className='col-12 p-0 pt-3'>
+                    <span className='text-success subtitle fw-bold fst-italic'>Mulțumesc pentru mesaj.<br/>Te voi contacta în cel mai scurt timp posibil!</span>
+                  </div>
+                }
               </form>
             </div>
 
-            { success &&
-              <div className='col-12 p-0 pt-3'>
-                <span className='text-success subtitle fw-bold fst-italic'>Mulțumesc pentru mesaj.<br/>Te voi contacta în cel mai scurt timp posibil!</span>
-              </div>
-            }
-
             <div className='row px-0'>
               <div className='col-12 position-relative map-wrap'>
-                <Map google={google} zoom={20} initialCenter={{lat: -1.2884, lng: 36.8233}} />
+                <Map google={google} zoom={16} initialCenter={{lat: 47.64252488460344, lng: 26.2606909821256}}>
+                  <Marker key="marker" position={{lat: 47.64252488460344, lng: 26.2606909821256}} />
+                </Map>
               </div>
             </div>
           </div>

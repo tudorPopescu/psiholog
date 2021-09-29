@@ -30,7 +30,6 @@ function generic(res, data, message) {
 }
 
 function error(res, message, err) {
-	console.log(err);
 	message = message || 'A apărut o eroare';
 	res.status(403);
 	res.send({success: false, message: message, err: err});
