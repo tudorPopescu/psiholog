@@ -69,16 +69,18 @@ class LoginPage extends React.Component {
   render() {
     const { pending, email, password, message } = this.state;
 
+
+
     return (
       <div>
         <Loading pending={pending} />
-        <section className='login'>
+        <section className='main'>
+          <p class="sign" align="center">Autentificare</p>
           <form>
-            <div className='illustration col-12'><FontAwesomeIcon icon={faLock} /></div>
             <div className='form-group mb-3'>
-              <input className='form-control' name='email' autoComplete='off' value={email} onChange={this.handleChange} type='email' placeholder='Email' />
-              <input className='form-control' name='password' autoComplete='off' value={password} onChange={this.handleChange} type='password' placeholder='Parola' />
-              <button className='btn btn-primary btn-block' onClick={this.handleSubmit}>Autentificare</button>
+              <input className='email' name='email' autoComplete='off' value={email} onChange={this.handleChange} type='email' placeholder='Email' />
+              <input className='password' name='password' autoComplete='off' value={password} onChange={this.handleChange} type='password' placeholder='Parola' />
+              <button className='submit' onClick={this.handleSubmit}>Autentificare</button>
             </div>
             <div className='clearfix'></div>
             {message ? <div className='error mt-3 text-center text-danger'>{message}</div> : null}

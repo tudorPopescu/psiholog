@@ -38,10 +38,10 @@ class Footer extends React.Component {
                   <ul className='navbar-nav ms-auto'>
                     <li className='navbar-item'><a className='nav-link py-0 text-secondary' href='tel:+40743210200/'><FontAwesomeIcon icon={faPhone} /> +40743210200</a></li>
                     <li className='navbar-item'><a className='nav-link py-0 text-secondary' href='mailto:psihologiuliagherasa@gmail.com'><FontAwesomeIcon icon={faEnvelope} /> psihologiuliagherasa@gmail.com</a></li>
-                    <li className='navbar-item'><a className='nav-link py-0 text-secondary' href='https://facebook.com/psihologiuliagherasa'><FontAwesomeIcon icon={faFacebook} /> Facebook</a></li>
+                    <li className='navbar-item'><a className='nav-link py-0 text-secondary' href='https://facebook.com/psihologiuliagherasa' target='_blank'><FontAwesomeIcon icon={faFacebook} /> Facebook</a></li>
                     <li className='navbar-item'><Link className='nav-link py-0 text-secondary' to='/appointment' onClick={this.scrollTop}><FontAwesomeIcon icon={faCalendarAlt} /> Programări online</Link></li>
-                    <li className='navbar-item'><Link className='nav-link py-0 text-secondary' to='/contact'><FontAwesomeIcon icon={faCity} /> Suceava, România</Link></li>
-                    <li className='navbar-item'><Link className='nav-link py-0 text-secondary' to='/contact'><FontAwesomeIcon icon={faMapMarker} /> Str. Ana Ipătescu, nr. 10, bl. A, sc. C, ap. 2</Link></li>
+                    <li className='navbar-item'><Link className='nav-link py-0 text-secondary' to='/contact' onClick={this.scrollTop}><FontAwesomeIcon icon={faCity} /> Suceava, România</Link></li>
+                    <li className='navbar-item'><Link className='nav-link py-0 text-secondary' to='/contact' onClick={this.scrollTop}><FontAwesomeIcon icon={faMapMarker} /> Str. Ana Ipătescu, nr. 10, bl. A, sc. C, ap. 2</Link></li>
                   </ul>
                 </blockquote>
               </Card.Body>
