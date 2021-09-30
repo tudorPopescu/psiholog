@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import * as dayjs from 'dayjs';
 import Loading from '../../../components/loading/loading.component';
 import { toastr } from '../../../components/toastr/toastr.component';
 import { Link } from 'react-router-dom';

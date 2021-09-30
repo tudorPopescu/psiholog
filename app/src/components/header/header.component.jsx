@@ -15,7 +15,7 @@ class Header extends React.Component {
     this.props.setCurrentUser(null);
 
     setTimeout(() => {
-      this.props.history.push('/');
+      window.location.reload();
     });
   }
 

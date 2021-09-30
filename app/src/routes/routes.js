@@ -27,7 +27,7 @@ const Routes = ({ currentUser, location }) => {
 
   return (
     <Router>
-      <Header />
+      { (currentUser || (!currentUser && location.pathname !== '/login')) && <Header /> }
       <Route path='/' component={ClientHomePage} exact strict  />
 
       { !currentUser &&
@@ -46,8 +46,7 @@ const Routes = ({ currentUser, location }) => {
           <Route path='/appointment' component={AppointmentPage} exact strict  />
         </>
       }
-
-      <Footer />
+      { (currentUser || (!currentUser && location.pathname !== '/login')) && <Footer /> }
     </Router>
   );
 };
