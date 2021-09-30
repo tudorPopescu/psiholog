@@ -1,7 +1,6 @@
 module.exports = db => {
   'use strict';
   const rhs      = require('../authorization/requestHandler').success;
-  const logError = require('../utils/utils')(db).logError;
   const moment   = require('moment');
 
   return {
@@ -22,6 +21,8 @@ module.exports = db => {
     },
 
     sendMailContact: (mail, res) => {
+      const logError = require('../utils/utils')(db).logError;
+
       let mailOptions = {
         from: 'Psiholog Iulia Gerasa',
         to: ['psihologiuliagherasa@gmail.com'],
@@ -45,6 +46,8 @@ module.exports = db => {
     },
 
     sendMailAppointment: (mail, res) => {
+      const logError = require('../utils/utils')(db).logError;
+
       let mailOptions = {
         from: 'Psiholog Iulia Gerasa',
         to: ['psihologiuliagherasa@gmail.com'],

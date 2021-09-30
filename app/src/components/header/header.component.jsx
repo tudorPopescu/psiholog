@@ -11,8 +11,16 @@ import logo from '../../assets/images/logo-no-bg.png';
 import './header.styles.scss';
 
 class Header extends React.Component {
+  logOut = () => {
+    this.props.setCurrentUser(null);
+
+    setTimeout(() => {
+      this.props.history.push('/');
+    });
+  }
+
   render() {
-    const { currentUser, setCurrentUser, location } = this.props;
+    const { currentUser, location } = this.props;
 
     return (
       <div id='header' className='row mx-0'>
@@ -45,7 +53,7 @@ class Header extends React.Component {
                   <>
                   <li className='navbar-item'><Link className='nav-link' to='/appointment'> Programari online</Link></li>
                   <li className='navbar-item'><Link className='nav-link' to='/errors'> Erori</Link></li>
-                  <li className='navbar-item'><Link className='nav-link' to='/' onClick={() => setCurrentUser(null)}> Deconectare</Link></li>
+                  <li className='navbar-item'><Link className='nav-link' to='/' onClick={() => this.logOut()}> Deconectare</Link></li>
                   </>
                 }
               </ul>

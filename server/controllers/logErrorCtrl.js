@@ -18,7 +18,7 @@ module.exports = db => {
     },
 
     destroyAll: (req, res) => {
-      db.query(`DELETE FROM "LoError"`).then(() => {
+      db.query(`DELETE FROM "LogError"`).then(() => {
         rhs(res);
       }).catch(e => logError('logErrorCtrl - destroyAll', e, res));
     },

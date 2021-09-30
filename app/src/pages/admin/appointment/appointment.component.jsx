@@ -1,13 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import dayjs from 'dayjs';
-import { cloneDeep, filter, findIndex } from 'lodash';
+import { cloneDeep, filter } from 'lodash';
 import { Row, Col, Tooltip, Whisper } from 'rsuite';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { setRenderedComponent } from '../../../redux/renderComponent/renderComponent.actions';
-import { selectedRenderedComponent } from '../../../redux/renderComponent/renderComponent.reselect';
-import { Button } from 'rsuite';
 import { toastr } from '../../../components/toastr/toastr.component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -120,4 +114,4 @@ class AppointmentPage extends React.Component {
 
 export default AppointmentPage;
 
-const tooltip = (<Tooltip>Șterge eroare</Tooltip>);
+const tooltip = (<Tooltip>Șterge programare</Tooltip>);

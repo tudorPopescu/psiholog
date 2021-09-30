@@ -109,7 +109,7 @@ class ErrorPage extends React.Component {
             </div>
           )
         },
-        { flexGrow: 1, header: 'Eroare', dataKey: 'error',
+        { flexGrow: 1, header: 'Eroare', dataKey: 'error', align: 'center',
           rowData: (rowData) => <div className='cursor-pointer' onDoubleClick={() => this.handleClick('errorModal', {item: rowData})}>{rowData.error}</div>
         },
         { width: 150, header: 'Data - Ora', dataKey: 'createdAt', align: 'left',
