@@ -35,6 +35,10 @@
     &:last-of-type {
       border-bottom: 0;
     }
+
+    &.nav-link {
+      padding: 0;
+    }
   }
 
   .menu-toggle {

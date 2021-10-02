@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import Loading from '../../components/loading/loading.component';
 import { toastr } from '../../components/toastr/toastr.component';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import { setCurrentUser } from '../../redux/user/user.actions';
 
@@ -69,18 +67,19 @@ class LoginPage extends React.Component {
   render() {
     const { pending, email, password, message } = this.state;
 
-
-
     return (
       <div>
         <Loading pending={pending} />
         <section className='main'>
-          <p class="sign" align="center">Autentificare</p>
+          <p className='sign' align='center'>Autentificare</p>
           <form>
             <div className='form-group mb-3'>
               <input className='email' name='email' autoComplete='off' value={email} onChange={this.handleChange} type='email' placeholder='Email' />
               <input className='password' name='password' autoComplete='off' value={password} onChange={this.handleChange} type='password' placeholder='Parola' />
-              <button className='submit' onClick={this.handleSubmit}>Autentificare</button>
+              <button onClick={this.handleSubmit}></button>
+              <button className='submit-btn' onClick={this.handleSubmit}>
+                <span className='text-uppercase'>Autentificare</span>
+              </button>
             </div>
             <div className='clearfix'></div>
             {message ? <div className='error mt-3 text-center text-danger'>{message}</div> : null}

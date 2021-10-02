@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from '../redux/user/user.reselect';
@@ -16,7 +16,7 @@ import Contact from '../pages/client/contact/contact.component';
 import Appointment from '../pages/client/appointment/appointment.component';
 
 import Login from '../pages/login/login.component';
-
+import NotFoundPage from '../pages/not-found/not-found.component';
 import Error from '../pages/admin/error/error.component';
 import AppointmentPage from '../pages/admin/appointment/appointment.component';
 
@@ -25,30 +25,44 @@ const Routes = ({ currentUser, location }) => {
     axios.defaults.headers.common['x-access-token'] = currentUser.token;
   }
 
-  return (
-    <Router>
-      { (currentUser || (!currentUser && location.pathname !== '/login')) && <Header /> }
-      <Route path='/' component={ClientHomePage} exact strict  />
+  if (!currentUser) {
+    return (
+      <Route path='/' component={ClientHomePage} exact />
+    )
+  }
 
-      { !currentUser &&
-        <>
-          <Route path='/about' component={AboutMe} exact strict />
-          <Route path='/services' component={Services} exact strict />
-          <Route path='/price' component={Price} exact strict />
-          <Route path='/contact' component={Contact} exact strict />
-          <Route path='/login' component={Login} exact strict />
-          <Route path='/appointment' component={Appointment} exact strict />
-        </>
-      }
-      { currentUser &&
-        <>
-          <Route path='/errors' component={Error} exact strict  />
-          <Route path='/appointment' component={AppointmentPage} exact strict  />
-        </>
-      }
-      { (currentUser || (!currentUser && location.pathname !== '/login')) && <Footer /> }
-    </Router>
-  );
+
+  // return (
+
+  //     { (currentUser || (!currentUser && location.pathname !== '/login')) && <Header /> }
+
+  //     { !currentUser &&
+  //       <>
+  //         <Route path='/' component={ClientHomePage} exact />
+  //         <Route path='/about' component={AboutMe} exact />
+  //         <Route path='/services' component={Services} />
+  //         <Route path='/price' component={Price} />
+  //         <Route path='/contact' component={Contact} />
+  //         <Route path='/login' component={Login} />
+  //         <Route path='/appointment' component={Appointment} />
+  //       </>
+  //     }
+  //     { currentUser &&
+  //       <>
+  //         <Route path='/errors' component={Error}  />
+  //         <Route path='/appointment' component={AppointmentPage}  />
+  //       </>
+  //     }
+
+  //     <Route exact path='/not-found' component={NotFoundPage} />
+
+  //     { (currentUser || (!currentUser && location.pathname !== '/login')) && <Footer /> }
+
+  //     <Route path='*'>
+  //       <Redirect to='/not-found' />
+  //     </Route>
+
+  // );
 };
 
 const mapStateToProps = createStructuredSelector({

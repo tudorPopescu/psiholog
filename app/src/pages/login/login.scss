@@ -1,3 +1,5 @@
+@import '../../styles/global.scss';
+
 .main {
   background-color: #FFFFFF;
   width: 400px;
@@ -9,7 +11,8 @@
 
 .sign {
   padding-top: 40px;
-  color: #8C55AA;
+  color: $black;
+  font-style: italic;
   font-weight: bold;
   font-size: 23px;
 }
@@ -61,19 +64,42 @@ form {
   border: 2px solid rgba(0, 0, 0, 0.18) !important;
 }
 
-.submit {
+.submit-btn {
+  position: relative;
+  border: none;
+  background-color: $black;
   cursor: pointer;
-  border-radius: 5em;
-  color: #fff;
-  background: linear-gradient(to right, #9C27B0, #E040FB);
-  border: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  margin-left: 30%;
-  font-size: 13px;
-  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  color: $white;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 20px ;
+  text-align: center;
+  margin-left: 28%;
+}
+
+.submit-btn span {
+  color: $white;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+}
+
+.submit-btn:after {
+  content: "";
+  position: absolute;
+  left: 60px;
+  top: 0;
+  height: 490%;
+  width: 140%;
+  background: $gold;
+  transition: all .7s ease-in-out;
+  transform: translateX(-120%) translateY(-16%) rotate(45deg);
+}
+
+.submit-btn:hover:after {
+  transform: translateX(-29%) translateY(-25%) rotate(45deg);
 }
 
 @media (max-width: 600px) {
