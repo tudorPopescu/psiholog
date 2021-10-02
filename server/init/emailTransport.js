@@ -1,5 +1,5 @@
 exports.createTransport = config => {
-  // if (config.env === 'production') {
+  if (config.env === 'production') {
     let nodemailer = require('nodemailer');
 
     console.log('process', process.env.clientId);
@@ -18,5 +18,5 @@ exports.createTransport = config => {
         expires: 1484314697598
       }
     });
-  // }
+  }
 };
