@@ -1,7 +1,7 @@
 module.exports = db => {
   'use strict';
-  const rhs      = require('../authorization/requestHandler').success;
-  const moment   = require('moment');
+  const rhs    = require('../authorization/requestHandler').success;
+  const moment = require('moment');
 
   return {
     sendMailErr: text => {
