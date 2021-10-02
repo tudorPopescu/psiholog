@@ -37,6 +37,7 @@ class LoginPage extends React.Component {
           this.setState({ message: resp.data.message + '!' });
         } else {
           this.setState({ message: '' });
+          resp.data.loggedInTime = new Date().getTime();
           setCurrentUser(resp.data);
           this.props.history.push('/appointment');
         }
@@ -77,7 +78,7 @@ class LoginPage extends React.Component {
               <input className='email' name='email' autoComplete='off' value={email} onChange={this.handleChange} type='email' placeholder='Email' />
               <input className='password' name='password' autoComplete='off' value={password} onChange={this.handleChange} type='password' placeholder='Parola' />
               <button onClick={this.handleSubmit}></button>
-              <button className='submit-btn' onClick={this.handleSubmit}>
+              <button className='login-btn' onClick={this.handleSubmit}>
                 <span className='text-uppercase'>Autentificare</span>
               </button>
             </div>

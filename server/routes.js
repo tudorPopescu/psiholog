@@ -9,6 +9,9 @@ module.exports = app => {
   /* LOGIN */
   app.post('/login', require('./authorization/jwtInit')(app));
 
+  /* Refresh Token */
+  app.use('/api/refreshToken', requireLogin, require('./utils/refreshToken')(app));
+
   /* LogError */
   app.use('/api/logError', requireLogin, require('./routes/logError')(app));
 

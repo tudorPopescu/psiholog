@@ -64,7 +64,7 @@ form {
   border: 2px solid rgba(0, 0, 0, 0.18) !important;
 }
 
-.submit-btn {
+.login-btn {
   position: relative;
   border: none;
   background-color: $black;
@@ -77,7 +77,7 @@ form {
   margin-left: 28%;
 }
 
-.submit-btn span {
+.login-btn span {
   color: $white;
   font-size: 14px;
   letter-spacing: 1.5px;
@@ -86,7 +86,7 @@ form {
   font-weight: bold;
 }
 
-.submit-btn:after {
+.login-btn:after {
   content: "";
   position: absolute;
   left: 60px;
@@ -98,7 +98,7 @@ form {
   transform: translateX(-120%) translateY(-16%) rotate(45deg);
 }
 
-.submit-btn:hover:after {
+.login-btn:hover:after {
   transform: translateX(-29%) translateY(-25%) rotate(45deg);
 }
 

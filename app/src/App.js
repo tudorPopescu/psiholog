@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.reselect';
+import { setCurrentUser } from './redux/user/user.actions';
 import { withRouter } from 'react-router'
 
 import Header from './components/header/header.component';
@@ -21,11 +22,22 @@ import Login from './pages/login/login.component';
 import NotFoundPage from './pages/not-found/not-found.component';
 import AppointmentPage from './pages/admin/appointment/appointment.component';
 import ErrorPage from './pages/admin/error/error.component';
+import { toastr } from './components/toastr/toastr.component';
 
 
-const App = ({currentUser, location}) => {
+const App = ({currentUser, setCurrentUser, location}) => {
   if (currentUser) {
-    axios.defaults.headers.common['x-access-token'] = currentUser.token;
+    const time = new Date().getTime() - currentUser.loggedInTime;
+    const hours20 = 72000000;
+
+    if (time >= hours20) {
+      axios.get('/api/refreshToken').then(resp => {
+        setCurrentUser({ ...currentUser, token: resp.data.token });
+        axios.defaults.headers.common['x-access-token'] = resp.data.token;
+      }).catch(() => toastr('error', 'Eroare la actualizarea tokenului!'));
+    } else {
+      axios.defaults.headers.common['x-access-token'] = currentUser.token;
+    }
   }
 
   return (
@@ -56,6 +68,11 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 });
 
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(withRouter(App));
