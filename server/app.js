@@ -18,7 +18,7 @@ Promise.all([pg(config), phantomInit.createPhantomSession(app), emailTransport.c
   app.locals.config = config;
   app.locals.db = values[0];
   app.locals.ph = values[1];
-  app.locals.email = global.smtpTransportYour = values[2];
+  app.locals.email = global.smtpTransport = values[2];
 
   app.io = io;
 

@@ -11,7 +11,7 @@ module.exports = db => {
         subject: 'Eroare Psiholog Iulia Gherasa !',
         text: text
       };
-      global.smtpTransportYour.sendMail(mailOptions, error => {
+      global.smtpTransport.sendMail(mailOptions, error => {
         if (error) {
           console.error('Email send err: ', error);
         } else {
@@ -36,7 +36,7 @@ module.exports = db => {
         `
       };
 
-      global.smtpTransportYour.sendMail(mailOptions, e => {
+      global.smtpTransport.sendMail(mailOptions, e => {
         if (e) {
           logError(null, 'emailSender - sendMailContact', e, res);
         } else {
@@ -61,7 +61,7 @@ module.exports = db => {
         `
       };
 
-      global.smtpTransportYour.sendMail(mailOptions, e => {
+      global.smtpTransport.sendMail(mailOptions, e => {
         if (e) {
           logError('emailSender - sendMailAppointment', e, res);
         } else {

@@ -1,7 +1,7 @@
 {
-	"name": "salarizare",
+	"name": "psiholog",
 	"version": "1.0.0",
-	"description": "Salarizare",
+	"description": "Psiholog Iulia Gherasa",
 	"main": "./server/app.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -11,17 +11,22 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/yourconsulting/salarizare.git"
+		"url": "git+https://github.com/tudorPopescu/psiholog.git"
 	},
 	"keywords": [
-		"salarizare"
+		"psihilog",
+		"iulia",
+		"gherasa",
+		"suceava",
+		"romania",
+		"cabinet"
 	],
-	"author": "Your Consulting S.R.L.",
+	"author": "Tudor Popescu",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/yourconsulting/salarizare/issues"
+		"url": "https://github.com/psihilog/psiholog/issues"
 	},
-	"homepage": "https://github.com/yourconsulting/salarizare#readme",
+	"homepage": "https://github.com/psihilog/psiholog#readme",
 	"dependencies": {
 		"compression": "^1.7.4",
 		"cookie-parser": "^1.4.5",
