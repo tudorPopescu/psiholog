@@ -1,8 +1,6 @@
 exports.createTransport = config => {
-  if (config.env === 'production') {
+  if (config.env.trim() === 'production') {
     let nodemailer = require('nodemailer');
-
-    console.log('process', process.env.clientId);
 
     return nodemailer.createTransport({
       host: 'smtp.gmail.com',
@@ -12,9 +10,9 @@ exports.createTransport = config => {
         type: 'OAuth2',
         user: 'psihologiuliagherasa@gmail.com',
         clientId: process.env.clientId,
-        clientSecret: process.env.clientSecret,
-        refreshToken: process.env.refreshToken,
-        accessToken: process.env.accessToken,
+        clientSecret: process.env.clientSecret.trim(),
+        refreshToken: process.env.refreshToken.trim(),
+        accessToken: process.env.accessToken.trim(),
         expires: 1484314697598
       }
     });

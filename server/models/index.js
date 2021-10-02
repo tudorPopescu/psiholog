@@ -32,7 +32,7 @@ module.exports = function getModels(sequelize, Sequelize) {
   const syncTables = [];
 
   _.each(arr, file => {
-    if (file.sync && process.env.RUN_CRON === 'true') {
+    if (file.sync && process.env.RUN_CRON.trim() === 'true') {
       let model = require(path.join(file.path))(sequelize, Sequelize);
       syncTables.push(model);
     } else {
@@ -51,7 +51,7 @@ module.exports = function getModels(sequelize, Sequelize) {
     }
   }
 
-  if (syncTables.length && process.env.RUN_CRON === 'true'){
+  if (syncTables.length && process.env.RUN_CRON.trim() === 'true'){
     _.each(syncTables, file => {
       console.info(file);
       file.sync({alter: true, logging: false});
