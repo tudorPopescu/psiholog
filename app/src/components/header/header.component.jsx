@@ -21,10 +21,7 @@ class Header extends React.Component {
 
   logOut = () => {
     this.props.setCurrentUser(null);
-
-    setTimeout(() => {
-      window.location.reload();
-    });
+    this.props.history.push('/');
   }
 
   render() {
