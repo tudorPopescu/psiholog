@@ -20,7 +20,7 @@ class AboutMe extends React.Component {
           <div className='row mx-0 mt-5'>
             <div className='col-12 col-lg-6 order-2 text-center'>
               <em className='d-lg-flex flex-column justify-content-center h-100'>
-                <h3 className='title d-block mt-5 mt-lg-0 mb-5 mb-lg-3'>Bună! Eu sunt Iulia.</h3>
+                <h3 className='title d-block mt-5 mt-lg-0 mb-5 mb-lg-3'>Salut! Numele meu este Iulia</h3>
                 <span className='content d-block mb-3 text-secondary'>
                   Am absolvit Facultatea de Psihologie și Științe ale Educației din cadrul Universității Alexandru Ioan Cuza din Iași, programul de masterat Psihologie Clinică și Psihoterapie și în prezent sunt specializată în psihologie clinică și psihologie aplicată în domeniul securității naționale. Totuși, nu pot să nu remarc faptul că cele mai multe cunoștințe le-am dobândit din experiență și mai puțin din cărți.
                 </span>

@@ -166,5 +166,5 @@ class Contact extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBqJPmzM-3zVRMj2tNfT4gtokuWCGgxgcY'
+  apiKey: `${process.env.REACT_APP_MAPS_API.trim()}`
 })(Contact);

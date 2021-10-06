@@ -17,7 +17,7 @@ class Price extends React.Component {
         { name: 'Examen psihologic pentru Comisia de Expertiză Medicală a Capacității de Muncă', price: '150' },
         { name: 'Examen psihologic copii cu dizabilități pentru Comisia de Handicap', price: '100' },
         { name: 'Evaluare psihologică complexă periodică', price: '80' },
-        { name: 'Deplasarea la domiciliu pentru pacienții nedeplasabili', price: '250' },
+        { name: 'Deplasarea la domiciliu pentru pacienții nedeplasabili', price: '100' },
         { name: 'Consiliere psihologică', price: '150' },
         { name: 'Dezvoltare personală', price: '150' },
         { name: 'Aviz psihologic funcție de conducere', price: '90' },
@@ -33,7 +33,8 @@ class Price extends React.Component {
         { name: 'Aviz psihologic atestat detectiv particular', price: '100' },
         { name: 'Aviz psihologic pirotehnician/artificier', price: '100' },
         { name: 'Aviz psihologic angajare agent pază/polițist comunitar', price: '100' },
-        { name: 'Aviz psihologic agent pază și ordine', price: '100' }
+        { name: 'Aviz psihologic agent pază și ordine', price: '100' },
+        { name: 'Consiliere psihologică/Coaching/Dezvoltare personală online', price: '100' }
       ]
     }
   }

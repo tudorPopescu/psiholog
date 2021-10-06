@@ -13,13 +13,13 @@ class Services extends React.Component {
     this.state = {
       services: [
         { name: 'Evaluarea psihologică clinică a adultului/ copilului', description: 'Este un interviu condus de către psiholog la care se adaugă o serie de instrumente de testare care evaluează inteligența/abilitatea cognitivă.', icon: faMale },
-        { name: 'Psihodiagnostic', description: 'Se concentrează asupra cunoașterii factorilor psihologici cu relevanță pentru sănătate și boală.', icon: faDiagnoses },
+        { name: 'Psihodiagnostic', description: 'Evaluare complexă ce se concentrează asupra cunoașterii factorilor psihologici cu relevanță pentru sănătatea psihică umană.', icon: faDiagnoses },
         { name: 'Evaluarea psihologică în vederea selecției pentru angajare/admitere', description: 'Avizul psihologic este un document care atestă faptul că o persoană este aptă pentru cererea pe care dorește să o depună.', icon: faBriefcase },
         { name: 'Evaluarea psihologică pentru permis de port armă', description: 'Avizul psihologic pentru permisul de port armă este un document care atestă faptul că o persoană este aptă pentru a deține și utiliza o armă letală/neletală.', icon: faHammer },
         { name: 'Consiliere psihologică', description: 'Este o formă de intervenție psihologică ce se adresează persoanelor sănătoase care se află într-o situație de impas în ceea ce privește rezolvarea anumitor situații de criză, profesionale, familiale sau sociale.', icon: faCommentDots },
-        { name: 'Coaching/Dezvoltare personală', description: 'Explorarea anumitor zone din viața persoanei și identificarea zonelor în care se dorește să se acționeze în vederea unei schimbări sau a unei îmbunătățiri.', icon: faChalkboardTeacher },
-        { name: 'Meditație', description: 'Transformarea minții umane astfel încât persoana să poată vedea lucrurile dintr-o nouă perspectivă și să se înțeleagă cât mai bine atât pe sine, cât și pe cei din jur.', icon: faBrain },
-        { name: 'Hipnoză', description: 'Componentă clinică și terapeutică ce implică aplicarea unor proceduri și sugestii care conduce persoana hipnotizată să trăiască experiențe imaginare.', icon: faStopwatch }
+        { name: 'Coaching', description: 'Explorarea anumitor gânduri și credințe limitative și identificarea posibilităților de acțiune în vederea îmbunătățirii calității vieții.', icon: faChalkboardTeacher },
+        { name: 'Meditație', description: 'O pauză conștientă de la agitația cotidiană și de la activitățile exterioare care par că nu se mai termină niciodată.', icon: faBrain },
+        { name: 'Hipnoză', description: 'Componentă clinică și terapeutică ce implică aplicarea unor proceduri și sugestii care duc la trăirea sau retrăirea unor experiențe imaginare.', icon: faStopwatch }
       ]
     }
   }
