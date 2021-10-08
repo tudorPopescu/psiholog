@@ -25,7 +25,7 @@ module.exports = db => {
 
       let mailOptions = {
         from: 'Psiholog Iulia Gerasa',
-        to: ['psihologiuliagherasa@gmail.com'],
+        to: ['contact@psihologiuliagherasa.ro'],
         subject: `Contact Psiholog Iulia Gherasa`,
         html: `
           <p style="margin-bottom: 5px;">Mail Contact trimis de către:<p/>
@@ -38,7 +38,7 @@ module.exports = db => {
 
       global.smtpTransport.sendMail(mailOptions, e => {
         if (e) {
-          logError(null, 'emailSender - sendMailContact', e, res);
+          logError('emailSender - sendMailContact', e, res);
         } else {
           rhs(res);
         }

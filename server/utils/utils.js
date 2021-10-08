@@ -10,12 +10,14 @@ module.exports = db => {
     emailSender.sendMailErr(text);
     db.models.LogError.create({ action: action, error: err ? err.toString() : '', detail: err ? JSON.stringify(err, null, 4) : '' }).then(() => {
       if (res) {
+        console.log(res);
         res.status(400);
         res.end();
       }
     }).catch(() => {
       if (res) {
-        res.status(400);
+        console.log(`'asdfasdf'`, res)
+        // res.status(400);
         res.end();
       }
     });

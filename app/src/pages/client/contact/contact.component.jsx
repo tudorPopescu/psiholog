@@ -39,7 +39,7 @@ class Contact extends React.Component {
       axios.post('/api/contact', this.state).then(() => {
         toastr('success', 'Mesajul a fost trimis cu succes!');
         this.setState({ first_name: '', last_name: '', email: '', phone: '', message: '', date: null, success: true, pending: false, required: {} })
-      }).catch(() => toastr('error', 'Eroare la trimite/rea mesajului!'));
+      }).catch(() => toastr('error', 'Eroare la trimiterea mesajului!'));
     }
   }
 
