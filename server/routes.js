@@ -21,6 +21,9 @@ module.exports = app => {
   /* Contact */
   app.use('/api/contact', require('./routes/contact')(app));
 
+  /* User */
+  app.use('/api/user', require('./routes/user')(app));
+
   app.route('*/:url(api|auth|components|app|bower_components|assets)/*').get(errors[404]);
 
   /* BUILD */

@@ -6,6 +6,9 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.reselect';
 import { setCurrentUser } from './redux/user/user.actions';
 import { withRouter } from 'react-router'
+import { toastr } from './components/toastr/toastr.component';
+import { setGoogleMapsApi } from './redux/google/google.actions';
+import { selectMapsApi } from './redux/google/google.reselect';
 
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
@@ -17,15 +20,18 @@ import Price from './pages/client/price/price.component';
 import Contact from './pages/client/contact/contact.component';
 import Appointment from './pages/client/appointment/appointment.component';
 
-
 import Login from './pages/login/login.component';
 import NotFoundPage from './pages/not-found/not-found.component';
 import AppointmentPage from './pages/admin/appointment/appointment.component';
 import ErrorPage from './pages/admin/error/error.component';
-import { toastr } from './components/toastr/toastr.component';
+
+import Loading from './components/loading/loading.component';
 
 
-const App = ({currentUser, setCurrentUser, location}) => {
+
+const App = ({currentUser, setCurrentUser, location, mapsApi, setGoogleMapsApi }) => {
+  let pending = false;
+
   if (currentUser) {
     const time = new Date().getTime() - currentUser.loggedInTime;
     const hours20 = 72000000;
@@ -40,36 +46,54 @@ const App = ({currentUser, setCurrentUser, location}) => {
     }
   }
 
-  return (
-    <>
-      {location.pathname !== '/login' && <Header /> }
+  if (!mapsApi) {
+    pending = true;
+    axios.get('/api/user/mapsApiKey').then(({ data }) => {
+      setGoogleMapsApi({ apiKey: data });
+      pending = false;
+    }).catch(() => {
+      pending = false;
+    });
+  }
 
-      <Switch>
-        <Route exact path="/" component={ClientHomePage} />
-        <Route path='/about' component={AboutMe} exact />
-        <Route path='/services' component={Services} />
-        <Route path='/price' component={Price} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/login' component={Login} />
-        {!currentUser && <Route path='/appointment' component={Appointment} /> }
+  if (pending) {
+    return (
+      <Loading pending={pending} />
+    )
+  } else {
+    return (
+      <>
+        {location.pathname !== '/login' && <Header /> }
 
-        {currentUser && <Route path='/errors' component={ErrorPage}  />}
-        {currentUser && <Route path='/appointment' component={AppointmentPage} />}
+        <Switch>
+          <Route exact path="/" component={ClientHomePage} />
+          <Route path='/about' component={AboutMe} exact />
+          <Route path='/services' component={Services} />
+          <Route path='/price' component={Price} />
+          <Route path='/contact' component={Contact} />
+          <Route path='/login' component={Login} />
+          {!currentUser && <Route path='/appointment' component={Appointment} /> }
 
-        <Route component={NotFoundPage} />
-      </Switch>
+          {currentUser && <Route path='/errors' component={ErrorPage}  />}
+          {currentUser && <Route path='/appointment' component={AppointmentPage} />}
 
-      {location.pathname !== '/login' && <Footer /> }
-    </>
-  );
+          <Route component={NotFoundPage} />
+        </Switch>
+
+        {location.pathname !== '/login' && <Footer /> }
+      </>
+    );
+  }
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  mapsApi: selectMapsApi
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  setGoogleMapsApi: google => dispatch(setGoogleMapsApi(google))
 });
 
 export default connect(

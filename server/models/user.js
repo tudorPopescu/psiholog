@@ -17,6 +17,9 @@ module.exports = (sequelize, DataType) => {
     password: {
       type: DataType.STRING
     },
+    maps_api_key: {
+      type: DataType.STRING
+    },
     salt: {
       type: DataType.STRING,
       allowNull: false,

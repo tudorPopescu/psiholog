@@ -3,6 +3,9 @@ import axios from 'axios';
 import { toastr } from '../../../components/toastr/toastr.component';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { Link } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { selectMapsApi } from '../../../redux/google/google.reselect';
 
 import Loading from '../../../components/loading/loading.component';
 
@@ -165,6 +168,16 @@ class Contact extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBqJPmzM-3zVRMj2tNfT4gtokuWCGgxgcY'
-})(Contact);
+const mapStateToProps = createStructuredSelector({
+  mapsApi: selectMapsApi
+});
+
+export default connect(
+  mapStateToProps
+)(GoogleApiWrapper(
+  props => {
+    return {
+      apiKey: props.mapsApi.apiKey
+    }
+  }
+)(Contact))
