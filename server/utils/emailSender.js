@@ -5,17 +5,15 @@ module.exports = db => {
 
   return {
     sendMailErr: text => {
-      let mailOptions = {
-        from: 'Psiholog Iulia Gherasa',
-        to: ['psihologiuliagherasa@gmail.com'],
+      const mailOptions = {
+        from: 'Eroare Psiholog',
+        to: ['contact@psihologiuliagherasa.ro'],
         subject: 'Eroare Psiholog Iulia Gherasa !',
         text: text
       };
       global.smtpTransport.sendMail(mailOptions, error => {
         if (error) {
           console.error('Email send err: ', error);
-        } else {
-          console.info('Email send YC!! ');
         }
       });
     },
@@ -23,8 +21,8 @@ module.exports = db => {
     sendMailContact: (mail, res) => {
       const logError = require('../utils/utils')(db).logError;
 
-      let mailOptions = {
-        from: 'Psiholog Iulia Gerasa',
+      const mailOptions = {
+        from: `${mail.last_name} ${mail.first_name}`,
         to: ['contact@psihologiuliagherasa.ro'],
         subject: `Contact Psiholog Iulia Gherasa`,
         html: `
@@ -48,9 +46,9 @@ module.exports = db => {
     sendMailAppointment: (mail, res) => {
       const logError = require('../utils/utils')(db).logError;
 
-      let mailOptions = {
-        from: 'Psiholog Iulia Gerasa',
-        to: ['psihologiuliagherasa@gmail.com'],
+      const mailOptions = {
+        from: `${mail.last_name} ${mail.first_name}`,
+        to: ['contact@psihologiuliagherasa.ro'],
         subject: `Programare Cabinet Psiholog Iulia Gherasa`,
         html: `
           <p style="margin-bottom: 5px;">Programare facută de către:<p/>
