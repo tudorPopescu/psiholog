@@ -22,12 +22,12 @@ module.exports = db => {
       const logError = require('../utils/utils')(db).logError;
 
       const mailOptions = {
-        from: `${mail.last_name} ${mail.first_name}`,
+        from: `${mail.first_name} ${mail.last_name}`,
         to: ['contact@psihologiuliagherasa.ro'],
         subject: `Contact Psiholog Iulia Gherasa`,
         html: `
           <p style="margin-bottom: 5px;">Mail Contact trimis de către:<p/>
-          <p style="margin-bottom: 5px;">Nume: <b>${mail.last_name}</b> Prenume: <b>${mail.first_name}</b></p>
+          <p style="margin-bottom: 5px;">Nume: <b>${mail.first_name}</b> Prenume: <b>${mail.last_name}</b></p>
           <p style="margin-bottom: 5px;">Telefon: <b>${mail.phone}</b></p>
           <p style="margin-bottom: 5px;">Email: <b>${mail.email}</b></p>
           <p style="margin-bottom: 5px;">Mesaj: <b>${mail.message}</b></p>
@@ -47,12 +47,12 @@ module.exports = db => {
       const logError = require('../utils/utils')(db).logError;
 
       const mailOptions = {
-        from: `${mail.last_name} ${mail.first_name}`,
+        from: `${mail.first_name} ${mail.last_name}`,
         to: ['contact@psihologiuliagherasa.ro'],
         subject: `Programare Cabinet Psiholog Iulia Gherasa`,
         html: `
           <p style="margin-bottom: 5px;">Programare facută de către:<p/>
-          <p style="margin-bottom: 5px;">Nume: <b>${mail.last_name}</b> Prenume: <b>${mail.first_name}</b></p>
+          <p style="margin-bottom: 5px;">Nume: <b>${mail.first_name}</b> Prenume: <b>${mail.last_name}</b></p>
           <p style="margin-bottom: 5px;">Telefon: <b>${mail.phone}</b></p>
           <p style="margin-bottom: 5px;">Email: <b>${mail.email}</b></p>
           <p style="margin-bottom: 5px;">Data: <b>${moment(mail.date).format('DD.MM.yyyy')}</b></p>
