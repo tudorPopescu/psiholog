@@ -1,5 +1,5 @@
 exports.createTransport = config => {
-  if (config.env.NODE_ENV.trim() === 'production') {
+  if (config.env === 'production') {
     let nodemailer = require('nodemailer');
     return nodemailer.createTransport({
       host: 'smtp.psihologiuliagherasa.ro',
